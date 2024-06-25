@@ -1,0 +1,35 @@
+# 自動的に改行コードを適切な形式に変換
+* text=auto
+
+# TypeScriptファイルのdiff設定
+*.ts diff=typescript
+*.tsx diff=typescript
+
+# JavaScriptファイルのdiff設定
+*.js diff=javascript
+*.jsx diff=javascript
+
+# JSONファイルのdiff設定
+*.json diff=json
+
+# CSSおよびSCSSファイルのdiff設定
+*.css diff=css
+*.scss diff=css
+
+# HTMLおよび関連ファイルのdiff設定
+*.html diff=html
+*.htm diff=html
+
+# Markdownファイルのdiff設定
+*.md diff=markdown
+
+# 特定のファイルやディレクトリをアーカイブから除外
+/node_modules export-ignore
+/.next export-ignore
+/.gitignore export-ignore
+/.gitattributes export-ignore
+
+# その他のエクスポート除外設定
+README.md export-ignore
+yarn.lock export-ignore
+package-lock.json export-ignore

@@ -1,0 +1,49 @@
+# Node modules
+node_modules/
+
+# Build directories
+build/
+dist/
+out/
+
+# Next.js specific
+.next/
+.vercel/
+
+# Logs
+logs/
+*.log
+
+# Dependency directories
+bower_components/
+
+# Test coverage
+coverage/
+
+# Generated files
+*.min.js
+*.min.css
+
+# Config files
+*.config.js
+*.config.ts
+
+# Markdown files (optional)
+*.md
+
+# Ignore specific folders
+public/
+static/
+
+# Ignore specific file types
+*.svg
+*.png
+*.jpg
+*.jpeg
+
+# Ignore specific files
+.env
+.DS_Store
+
+# Ignore all hidden files
+.*
