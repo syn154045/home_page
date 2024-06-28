@@ -7,7 +7,7 @@ export const metadata: Metadata = {
         template: '%s | 村上鳥類研究所',
         default: '村上鳥類研究所',
     },
-    description: '日本の野鳥の生態について研究しています',
+    description: '野鳥の行動生態学について研究しています',
 };
 
 export default function RootLayout({

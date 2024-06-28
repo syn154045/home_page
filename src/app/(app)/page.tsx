@@ -1,9 +1,8 @@
 
-
 const Home = () => {
     return (
-        <main>
-            
+        <main className="h-screen">
+            main content.
         </main>
     );
 }
