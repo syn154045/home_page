@@ -1,16 +1,28 @@
 import React from 'react';
-import Navbar from '@/app/_components/app/layouts/navbar/Navbar'
+import Navbar from '@/app/_components/app/layouts/navbar/Navbar';
+import Image from 'next/image';
+import PCHeaderLogo from '~/public/PCheaderLogo.png';
+import SPHeaderLogo from '~/public/appLogo.png';
 
 const Header = () => {
     return (
-        <div className='font-ubuntuMono h-16 absolute top-0 z-10 bg-cyan-300 px-2 py-4 w-full'>
-            <div className='flex justify-between mx-10'>
-                <div>
-                    Here insert logo
-                </div>
-                <div>
-                    <Navbar />
-                </div>
+        <div className="sticky top-0 h-20 bg-transparent px-5 py-4 font-ubuntuMono">
+            {/* tablet~ */}
+            <div className="z-50 mx-auto hidden w-full max-w-5xl justify-between tablet:flex">
+                <Image
+                    src={PCHeaderLogo}
+                    alt="header"
+                    className="max-h-12 w-40 rounded-xl object-contain"
+                />
+                <Navbar />
+            </div>
+            {/* ~tablet */}
+            <div className="block tablet:hidden">
+                <Image
+                    src={SPHeaderLogo}
+                    alt="header"
+                    className="max-h-12 w-20 rounded-xl object-contain"
+                />
             </div>
         </div>
     );

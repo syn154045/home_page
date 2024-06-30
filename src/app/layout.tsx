@@ -4,8 +4,8 @@ import './globals.css';
 
 export const metadata: Metadata = {
     title: {
-        template: '%s | 村上鳥類研究所',
-        default: '村上鳥類研究所',
+        template: '%s | Ornith Tech',
+        default: 'Ornith Tech',
     },
     description: '野鳥の行動生態学について研究しています',
 };
