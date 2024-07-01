@@ -29,7 +29,7 @@ const ScrollToTop = () => {
 
     return (
         <div className="fixed bottom-10 h-10 w-full">
-            <div className="mx-auto w-full max-w-5xl pr-5">
+            <div className="mx-auto w-full pr-5">
                 <div className="ml-auto w-10">
                     <button
                         onClick={handleClick}

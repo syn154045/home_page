@@ -5,8 +5,8 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
     return (
         <div className="w-full bg-app-base">
             <Layout.Header />
-            <div className="pb-10 font-ubuntuMono">
-                <div className="mx-auto w-full max-w-5xl">{children}</div>
+            <div className="pb-10 font-ubuntuMono text-app-text-main">
+                <div className="mx-auto w-[95%] max-w-5xl">{children}</div>
             </div>
             <Layout.Footer />
             <Layout.ScrollToTop />

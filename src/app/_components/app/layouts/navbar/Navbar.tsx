@@ -1,10 +1,13 @@
 'use client';
-import { use, useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import NavButton from '_components/app/elements/buttons/NavButton';
+import HamburgerButton from '../../elements/buttons/HamburgerButton';
 
 const Navbar = () => {
+    // TODO: useState乱用廃止, useRef? gsap?
+    
     // nav visibility & animation
     const [isNavVisible, setIsNavVisible] = useState(true);
     const [isNavAnimating, setIsNavAnimating] = useState(false);
@@ -26,9 +29,9 @@ const Navbar = () => {
 
         /**
          * navigation & hamburger visibility toggle
-         * 1. nav(ham) = opacity-0(animation)       + 500ms
-         * 2. nav(ham) = hidden / ham(nav) = block  + 300ms
-         * 3. ham(nav) = opacity-100(animation)     + 500ms
+         * 1. nav(ham) = opacity-0(animation)       + delay
+         * 2. nav(ham) = hidden / ham(nav) = block  + delay
+         * 3. ham(nav) = opacity-100(animation)     + delay
          */
         if (window.scrollY > 100 && !isHamVisible) {
             // 1.
@@ -115,10 +118,8 @@ const Navbar = () => {
      */
     useEffect(() => {
         if (isOpen) {
-            document.body.style.overflow = 'hidden';
             window.addEventListener('click', handleClickOutside);
         } else {
-            document.body.style.overflow = '';
             window.removeEventListener('click', handleClickOutside);
         }
     }, [isOpen, handleClickOutside]);
@@ -147,11 +148,11 @@ const Navbar = () => {
                     <NavButton href="/about" label="ABOUT" />
                     <NavButton href="/blog" label="BLOG" />
                     <NavButton href="/contact" label="CONTACT" />
-                    <NavButton href="/test" label="TEST" />
+                    <NavButton href="/labo" label="LABO" />
                 </ul>
                 {/* hamburger */}
                 <label
-                    htmlFor="burger"
+                    htmlFor="hamburger"
                     className={`relative block h-7 w-9 cursor-pointer bg-transparent transition-all duration-500 ease-in-out
                     ${
                         isHamVisible
@@ -165,7 +166,7 @@ const Navbar = () => {
                 >
                     <input
                         type="checkbox"
-                        id="burger"
+                        id="hamburger"
                         className="peer absolute appearance-none"
                         checked={isOpen}
                         onChange={toggleMenu}
@@ -181,16 +182,16 @@ const Navbar = () => {
             >
                 <ul className="space-y-6 text-xl text-white">
                     <li onClick={toggleMenu}>
-                        <Link href="/about">ABOUT</Link>
+                        <HamburgerButton href="/about" label="ABOUT" />
                     </li>
                     <li onClick={toggleMenu}>
-                        <Link href="/blog">BLOG</Link>
+                        <HamburgerButton href="/blog" label="BLOG" />
                     </li>
                     <li onClick={toggleMenu}>
-                        <Link href="/contact">CONTACT</Link>
+                        <HamburgerButton href="/contact" label="CONTACT" />
                     </li>
                     <li onClick={toggleMenu}>
-                        <Link href="/test">TEST</Link>
+                        <HamburgerButton href="/labo" label="LABO" />
                     </li>
                 </ul>
             </div>
