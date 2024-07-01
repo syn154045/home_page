@@ -145,7 +145,7 @@ const Navbar = () => {
                               : 'hidden'
                     }`}
                 >
-                    <NavButton href="/about" label="ABOUT" />
+                    <NavButton href="/profile" label="PROFILE" />
                     <NavButton href="/blog" label="BLOG" />
                     <NavButton href="/contact" label="CONTACT" />
                     <NavButton href="/labo" label="LABO" />
@@ -182,7 +182,7 @@ const Navbar = () => {
             >
                 <ul className="space-y-6 text-xl text-white">
                     <li onClick={toggleMenu}>
-                        <HamburgerButton href="/about" label="ABOUT" />
+                        <HamburgerButton href="/profile" label="PROFILE" />
                     </li>
                     <li onClick={toggleMenu}>
                         <HamburgerButton href="/blog" label="BLOG" />

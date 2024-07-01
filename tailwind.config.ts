@@ -21,13 +21,13 @@ const config: Config = {
           accent2: '#8e9dcc', // vista blue
         },
         app: {
-          base: '#071952',
-          main: '#0B666A',
-          accent: '#97FEED',
-          accent2: '#35A29F',
+          base: '#48555C',
+          main: '#B7AAA3',
+          accent: '#4EFFEF',
+          accent2: '#00A7F5',
           text: {
-            main: '#ffffff',
-            sub: '#fefefe',
+            main: '#C5C5C5',
+            sub: '#FFFEF6',
           }
         },
         elem: {

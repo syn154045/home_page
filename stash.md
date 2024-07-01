@@ -27,6 +27,15 @@ theme: { extend: { colors: {
         sub: '#fefefe',
         }
     },
+    monotone: {
+        base: '#48555C',
+        main: '#B7AAA3',
+        accent: '#4EFFEF',
+        accent2: '#00A7F5',
+        text: {
+        main: '#C5C5C5',
+        sub: '#FFFEF6',
+    }
 
 },},}
 ```
