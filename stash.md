@@ -3,6 +3,28 @@
 - ページのイメージを形にしてください。
 - Canvasタグを使用したトップビュー
 
+# Prisma init...
+```bash
+npm run dev
+npx prisma init --datasource-provider sqlite
+    Next steps:
+    1. Set the DATABASE_URL in the .env file to point to your existing database. If your database has no tables yet, read https://pris.ly/d/getting-started
+    2. Run prisma db pull to turn your database schema into a Prisma schema.
+    3. Run prisma generate to generate the Prisma Client. You can then start querying your database.
+npx prisma generate
+npx prisma migrate dev --name init
+```
+
+```.env
+User: root
+Password: pass
+Host: localhost
+Port: 5432
+Database name: mydb
+Schema name: public
+DATABASE_URL=postgresql://root:pass@localhost:5432/mydb?schema=public
+```
+
 # color palette...
 ```ts:tailwind.config.ts
 theme: { extend: { colors: {

@@ -27,7 +27,7 @@ const config: Config = {
           accent2: '#00A7F5',
           text: {
             main: '#C5C5C5',
-            sub: '#FFFEF6',
+            sub: '#A9A9A9',
           }
         },
         elem: {

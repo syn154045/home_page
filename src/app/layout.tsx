@@ -4,10 +4,10 @@ import './globals.css';
 
 export const metadata: Metadata = {
     title: {
-        template: '%s | Ornith Tech',
-        default: 'Ornith Tech',
+        template: '%s | syn:',
+        default: 'syn:',
     },
-    description: '野鳥の行動生態学について研究しています',
+    description: '色々研究しています.',
 };
 
 export default function RootLayout({
