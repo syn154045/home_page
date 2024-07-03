@@ -1,4 +1,4 @@
-import NavButton from "./NavButton";
-import HamburgerButton from "./HamburgerButton";
+import NavButton from "./_NavButton";
+import HamburgerButton from "./_HamburgerButton";
 
 export { NavButton, HamburgerButton }

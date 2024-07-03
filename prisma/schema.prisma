@@ -24,6 +24,9 @@ model account {
   scope               String?
   id_token            String? @db.Text
   session_state       String?
+  
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
 
   user user @relation(fields: [user_id], references: [id], onDelete: Cascade)
 
@@ -36,17 +39,23 @@ model session {
   user_id       String
   expires       DateTime
   user          user     @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
 }
 
 model user {
   id             String    @id @default(cuid())
   name           String?
-  email          String?   @unique
+  email          String    @unique
   email_verified DateTime?
   image          String?
   accounts       account[]
   sessions       session[]
   blogs          blog[]
+  
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
 }
 
 model verification_token {
@@ -62,9 +71,10 @@ model blog {
   author_id  String
   author     user       @relation(fields: [author_id], references: [id])
   title      String
+  thumbnail  String?     @unique
   body       String
   created_at DateTime   @default(now())
-  updated_at DateTime   @default(now())
+  updated_at DateTime   @updatedAt
   deleted_at DateTime?
   tags       tag[]
   blog_tag   blog_tag[]

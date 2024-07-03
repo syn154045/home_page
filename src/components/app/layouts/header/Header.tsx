@@ -1,7 +1,6 @@
 import React from 'react';
-import Navbar from '@/app/_components/app/layouts/navbar/Navbar';
+import { Navbar } from '@/components/app/layouts'
 import Image from 'next/image';
-import PCHeaderLogo from '~/public/PCheaderLogo.png';
 import HeaderLogo from '~/public/Logo.png';
 import Link from 'next/link';
 

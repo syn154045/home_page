@@ -22,6 +22,10 @@ const config: Config = {
           main: '#7d84b2', // cool gray
           accent: '#d9dbf1', // lavender
           accent2: '#8e9dcc', // vista blue
+          text: {
+            main: '#FFFFFF',
+            sub: '#FFFFFF'
+          }
         },
         app: {
           base: '#48555C',

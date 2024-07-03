@@ -12,6 +12,7 @@
     "ff": "npm run format && npm run fix"
   },
   "dependencies": {
+    "@auth/prisma-adapter": "^2.4.1",
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
     "@fortawesome/free-brands-svg-icons": "^6.5.2",
     "@fortawesome/free-regular-svg-icons": "^6.5.2",
@@ -20,13 +21,15 @@
     "@prisma/adapter-pg": "^5.16.1",
     "@prisma/client": "^5.16.1",
     "@types/rellax": "^1.7.7",
+    "draft-js": "^0.11.7",
     "gsap": "^3.12.5",
     "next": "14.2.3",
-    "next-auth": "^4.24.7",
+    "next-auth": "^5.0.0-beta.19",
     "pg": "^8.12.0",
     "prop-types": "^15.8.1",
     "react": "^18",
     "react-dom": "^18",
+    "react-draft-wysiwyg": "^1.15.0",
     "react-intersection-observer": "^9.10.3",
     "react-share": "^5.1.0",
     "swiper": "^11.1.4"
