@@ -16,11 +16,11 @@ npx prisma migrate dev --name init
 ```
 
 ```.env
-User: root
+User: postgres
 Password: pass
 Host: localhost
 Port: 5432
-Database name: mydb
+Database name: myapp
 Schema name: public
 DATABASE_URL=postgresql://root:pass@localhost:5432/mydb?schema=public
 ```

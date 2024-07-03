@@ -2,7 +2,7 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
   previewFeatures = ["driverAdapters"]
 }
 
@@ -11,85 +11,90 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model account {
+  id                  String  @id @default(cuid())
+  user_id             String
+  type                String
+  provider            String
+  provider_account_id String
+  refresh_token       String? @db.Text
+  access_token        String? @db.Text
+  expires_at          Int?
+  token_type          String?
+  scope               String?
+  id_token            String? @db.Text
+  session_state       String?
 
-model Account {
-  id                 String  @id @default(cuid())
-  userId             String
-  type               String
-  provider           String
-  providerAccountId  String
-  refresh_token      String?  @db.Text
-  access_token       String?  @db.Text
-  expires_at         Int?
-  token_type         String?
-  scope              String?
-  id_token           String?  @db.Text
-  session_state      String?
+  user user @relation(fields: [user_id], references: [id], onDelete: Cascade)
 
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  @@unique([provider, providerAccountId])
+  @@unique([provider, provider_account_id])
 }
 
-model Session {
-  id           String   @id @default(cuid())
-  sessionToken String   @unique
-  userId       String
-  expires      DateTime
-  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+model session {
+  id            String   @id @default(cuid())
+  session_token String   @unique
+  user_id       String
+  expires       DateTime
+  user          user     @relation(fields: [user_id], references: [id], onDelete: Cascade)
 }
 
-model User {
-  id            String    @id @default(cuid())
-  name          String?
-  email         String?   @unique
-  emailVerified DateTime?
-  image         String?
-  accounts      Account[]
-  sessions      Session[]
-  blogs         Blog[]
+model user {
+  id             String    @id @default(cuid())
+  name           String?
+  email          String?   @unique
+  email_verified DateTime?
+  image          String?
+  accounts       account[]
+  sessions       session[]
+  blogs          blog[]
 }
 
-model VerificationToken {
-  identifier  String
-  token       String    @unique
-  expires     DateTime
+model verification_token {
+  identifier String
+  token      String   @unique
+  expires    DateTime
 
   @@unique([identifier, token])
 }
 
-model Blog {
-  id        Int       @id @default(autoincrement())
-  authorId  String
-  author    User      @relation(fields: [authorId], references: [id])
-  title     String
-  body      String
-  createdAt DateTime  @default(now())
-  tags      BlogTag[]
+model blog {
+  id         Int        @id @default(autoincrement())
+  author_id  String
+  author     user       @relation(fields: [author_id], references: [id])
+  title      String
+  body       String
+  created_at DateTime   @default(now())
+  updated_at DateTime   @default(now())
+  deleted_at DateTime?
+  tags       tag[]
+  blog_tag   blog_tag[]
 }
 
-model Tag {
-  id        Int       @id @default(autoincrement())
+model tag {
+  id        Int        @id @default(autoincrement())
   type      Int
-  typeName  String
-  blogs     BlogTag[]
+  type_name String
+  blogs     blog[]
+  blog_tag  blog_tag[]
 }
 
-model BlogTag {
-  blogId  Int
-  tagId   Int   @unique
-  blog    Blog  @relation(fields: [blogId], references: [id])
-  tag     Tag   @relation(fields: [tagId], references: [id])
-  
-  @@id([blogId, tagId])
+model blog_tag {
+  blog_id    Int
+  tag_id     Int       @unique
+  created_at DateTime  @default(now())
+  deleted_at DateTime?
+  blog       blog      @relation(fields: [blog_id], references: [id])
+  tag        tag       @relation(fields: [tag_id], references: [id])
+
+  @@id([blog_id, tag_id])
 }
 
-model Contact {
-  id          Int       @id @default(autoincrement())
-  name        String
-  email       String    @unique
-  tel         String
-  title       String
-  body        String?
-  createdAt   DateTime  @default(now())
+model contact {
+  id         Int      @id @default(autoincrement())
+  name       String
+  email      String   @unique
+  tel        String
+  title      String
+  body       String?
+  created_at DateTime @default(now())
 }

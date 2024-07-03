@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { MPlusRounded, UbuntuMono, RedditMono } from '~/utils/fonts';
+import { MPlusRounded, UbuntuMono, RedditMono } from '@/common/utils/fonts';
 import './globals.css';
 
 export const metadata: Metadata = {

@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import Body from '_components/app/layouts/body/Body';
+import { Body } from '@/components/app/layouts';
 
 export const metadata: Metadata = {
     title: 'labo',

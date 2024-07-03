@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
-import Body from '_components/app/layouts/body/Body';
-import Image from 'next/image';
-import ProfileImage from '~/public/profile.png';
-import SkillImage from '~/public/skill.png';
+import ProfileImg from '~/public/profile.png';
+import SkillImg from '~/public/skill.png';
+import { Body } from '@/components/app/layouts';
+import { ProfileImage } from '@/components/app/elements/images'
 
 export const metadata: Metadata = {
     title: 'profile',
@@ -13,9 +13,7 @@ const Profile = () => {
         <Body title='PROFILE'>
             {/* profile */}
             <div className="tablet:flex">
-                <div className="w-1/2 mx-auto tablet:w-1/3 tablet:mx-0">
-                    <Image src={ProfileImage} alt="syn:" className="w-full shadow-2xl object-cover rounded-bl-none rounded-br-[3rem] rounded-tr-[3rem] tablet:rounded-tr-none rounded-tl-[3rem] tablet:rounded-bl-[3rem]" />
-                </div>
+                <ProfileImage imgSrc={ProfileImg} imgAlt="syn:" />
                 <div className="tablet:w-2/3 w-full mt-10 tablet:mt-0 tablet:ml-5">
                     <h2 className="text-2xl">
                         syn: / シン
@@ -44,9 +42,7 @@ const Profile = () => {
             </div>
             {/* skills */}
             <div className="mt-20 tablet:flex tablet:flex-row-reverse">
-                <div className="w-1/2 mx-auto tablet:w-1/3 tablet:mx-0">
-                    <Image src={SkillImage} alt="syn:" className="w-full shadow-2xl object-cover rounded-bl-none rounded-br-[3rem] rounded-tr-[3rem] tablet:rounded-tr-none rounded-tl-[3rem] tablet:rounded-bl-[3rem]" />
-                </div>
+                <ProfileImage imgSrc={SkillImg} imgAlt="skills" />
                 <div className='tablet:w-2/3 w-full mt-10 tablet:mt-0 tablet:mr-5'>
                     <h2 className='text-2xl'>
                         skills:

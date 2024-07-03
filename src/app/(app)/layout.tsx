@@ -1,5 +1,4 @@
-import * as Layout from '_components/app/layouts/index';
-import Image from 'next/image';
+import * as Layout from '@/components/app/layouts';
 
 const AppLayout = ({ children }: { children: React.ReactNode }) => {
     return (
