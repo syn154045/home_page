@@ -1,7 +1,7 @@
 'use client';
 import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
-import { signIn } from "~/auth";
+import { signIn } from "@/common/utils/auth";
 
 const Login = () => {
     const [email, setEmail] = useState<string>('');
