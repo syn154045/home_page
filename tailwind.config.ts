@@ -18,13 +18,13 @@ const config: Config = {
       },
       colors: {
         admin: {
-          base: '#f9f9ed', // ivory
-          main: '#7d84b2', // cool gray
-          accent: '#d9dbf1', // lavender
-          accent2: '#8e9dcc', // vista blue
+          base: '#B4B4B8',
+          main: '#C7C8CC',
+          accent: '#E3E1D9',
+          accent2: '#F2EFE5',
           text: {
-            main: '#FFFFFF',
-            sub: '#FFFFFF'
+            main: '#4B4B47',
+            sub: '#3C3C39'
           }
         },
         app: {
@@ -38,7 +38,7 @@ const config: Config = {
           }
         },
         elem: {
-          alert: '#bd8f8f', // fa8072
+          alert: '#F34336', // fa8072
           success: '#8fbc8f', // 73fa80
           info: '#8f8fbd', // 8073fa
         },

@@ -3,6 +3,21 @@
 - ページのイメージを形にしてください。
 - Canvasタグを使用したトップビュー
 
+# Directory...
+
+```script
+|-- app/
+|   |-- db/
+|   |   L-- user.ts  in=db{ prisma } / ex=(DBアクセス){ getUserByEmail }
+|   |-- lib/
+|   |   |-- actions.ts  in={ getUserByEmail / signUpSchema / signIn,signOut / prisma }
+|   |   L-- schemas.ts  ex=(validation){ signUpSchema / signInSchema }
+|-- globals
+|   |-- db.ts  ex=(prismaインスタンス){ prisma }
+
+
+```
+
 # Prisma init...
 ```bash
 npm run dev
@@ -55,9 +70,21 @@ theme: { extend: { colors: {
         accent: '#4EFFEF',
         accent2: '#00A7F5',
         text: {
-        main: '#C5C5C5',
-        sub: '#FFFEF6',
+            main: '#C5C5C5',
+            sub: '#FFFEF6',
+        }
+    },
+    purpule: {
+        base: '#5A639C',
+        main: '#7776B3',
+        accent: '#9B86BD',
+        accent2: '#E2BBE9',
+        text: {
+            main: '#FFFFFF',
+            sub: '#FFFFFF'
+        }
     }
+    
 
 },},}
 ```
