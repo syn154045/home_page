@@ -1,60 +1,115 @@
-'use client';
-
-import AuthInput from "@/components/admin/elements/inputs/_authInput";
-import { login } from "@/features/actions/admin/loginAction";
-import { useFormState } from "react-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFeatherPointed } from "@fortawesome/free-solid-svg-icons";
+"use client";
+import React from "react";
+import { useState } from "react";
+import { useSession, signIn, signOut } from "next-auth/react";
+import { redirect } from "next/navigation";
 import Link from "next/link";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { loginSchema } from "@/features/validations/admin/loginSchema";
 
-const Login = () => {
-    const [errorMessage, dispatch] = useFormState(login, undefined);
-    
-    return (
-        <div className="w-screen h-screen flex flex-col justify-center items-center">
-            <div className="flex items-center text-4xl font-semibold text-center">
-                <FontAwesomeIcon icon={faFeatherPointed} />
-                <p className="pl-5">Log in</p>
+const Page = () => {
+  const { data: session, status } = useSession();
+  const [resError, setResError] = useState<Error>();
+  const {
+    register,
+    handleSubmit,
+    getValues,
+    formState: { errors },
+  } = useForm({
+    mode: "onChange",
+    resolver: zodResolver(loginSchema),
+  });
+
+  //セッション判定
+  if (session) redirect("/admin/dashboard");
+
+  const handleLogin = async (data: any) => {
+    const email = data.email;
+    const password = data.password;
+    const res = await fetch("/api/admin/login", {
+      body: JSON.stringify(data),
+      headers: {
+        "Content-type": "application/json",
+      },
+      method: "POST",
+    });
+    if (res.ok) {
+      signIn("credentials", { email: email, password: password });
+    } else {
+      const resError = await res.json();
+      setResError(resError.errors);
+    }
+  };
+  return (
+    <>
+      <div className="flex flex-col w-full h-screen text-sm items-center justify-center">
+        <div className="flex flex-col items-center justify-center p-10 border-2 rounded-2xl">
+          <p className="text-2xl font-bold mb-5">ログイン画面</p>
+          <form
+            onSubmit={handleSubmit(handleLogin)}
+            className="flex flex-col items-center"
+          >
+            <div className="text-xs font-bold text-red-400 mb-4">
+              {resError as React.ReactNode}
             </div>
-            <div className="mt-10 w-[95%] max-w-2xl">
-                <form action={dispatch} className="relative w-full">
-                    <div className="mt-8">
-                        <AuthInput inputId="email" inputType="email" label="Email" />
-                        <div className="h-4">
-                            {/* error message */}
-                        </div>
-                    </div>
-                    <div className="mt-8">
-                        <AuthInput inputId="password" inputType="password" label="Password" />
-                        <div className="h-4">
-                            {/* error message */}
-                        </div>
-                    </div>
-                    <div className="w-4/5 mx-auto mt-8 flex">
-                        <button
-                            // type="submit"
-                            className="w-full bg-admin-accent p-2 rounded-lg hover:bg-opacity-50 focus:outline-none focus:bg-opacity-50 transition-all duration-300"
-                        >
-                            Log in
-                        </button>
-                    </div>
-                </form>
-                <div className="flex h-8  items-end space-x-1">
-                    {errorMessage && 
-                        <p className="text-elem-alert">{errorMessage}</p>
-                    }
-                </div>
-                <div className="flex justify-between mt-8">
-                    <div className="w-1/2 text-center">
-                        <Link href={'/admin/register'} className="inline-block w-36 border rounded-2xl px-4 py-2 transition-all duration-300 hover:bg-admin-accent">Sign Up</Link>
-                    </div>
-                    <div className="w-1/2 text-center">
-                        <Link href={'/'} className="inline-block w-36 border rounded-2xl px-4 py-2 transition-all duration-300 hover:bg-admin-accent">Public Page</Link>
-                    </div>
-                </div>
-            </div>
+            <label htmlFor="email">
+              <p>メールアドレス</p>
+              <input
+                type="text"
+                id="email"
+                {...register("email")}
+                className=" border-2 w-[300px] h-[35px] px-2 mb-2"
+              />
+              <div className="text-xs font-bold text-red-400 mb-2">
+                {errors.email?.message as React.ReactNode}
+              </div>
+            </label>
+            <label htmlFor="password">
+              <p>パスワード</p>
+              <input
+                type="password"
+                id="password"
+                {...register("password")}
+                className=" border-2 w-[300px] h-[35px] px-2 mb-2"
+              />
+              <div className="text-xs font-bold text-red-400 mb-2">
+                {errors.password?.message as React.ReactNode}
+              </div>
+            </label>
+            <button
+              type="submit"
+              className="text-white bg-gray-700 w-[300px] h-[35px] mt-2"
+            >
+              ログイン
+            </button>
+          </form>
+          <hr className="my-4 border-gray-300 w-[300px]" />
+          <div className="flex flex-col items-center">
+            <button
+              onClick={() => {
+                signIn("github");
+              }}
+              className="bg-white text-black border-2 w-[300px] h-[35px] mb-2"
+            >
+              Githubでログイン
+            </button>
+            <button
+              onClick={() => {
+                signIn("google");
+              }}
+              className="bg-white text-black border-2 w-[300px] h-[35px] mb-2"
+            >
+              Googleでログイン
+            </button>
+            <Link href="/admin/register" className="mt-2">
+              新規登録はこちら
+            </Link>
+          </div>
         </div>
-    );
+      </div>
+    </>
+  );
 };
 
-export default Login;
+export default Page;
