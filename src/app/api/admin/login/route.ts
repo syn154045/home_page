@@ -2,8 +2,14 @@ import { prisma } from '@/common/utils/prismadb';
 import bcrypt from 'bcrypt';
 import { NextRequest, NextResponse } from 'next/server';
 
+
+interface LoginData {
+    email: string;
+    password: string;
+}
+
 export async function POST(req: NextRequest) {
-    const data = await req.json();
+    const data: LoginData = await req.json();
     const { email, password } = data;
 
     try {
