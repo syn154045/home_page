@@ -52,25 +52,25 @@ const handler = NextAuth({
         strategy: 'jwt',
     },
     callbacks: {
-        async jwt({ token, trigger, user }) {
-            if (trigger === 'signIn') {
-                // token.role = user.role;
-                // token.emailVerified = user.emailVerfied ? user.emailVerfied : null;
-            }
+        // async jwt({ token, trigger, user }) {
+        //     if (trigger === 'signIn') {
+        //         // token.role = user.role;
+        //         // token.emailVerified = user.emailVerfied ? user.emailVerfied : null;
+        //     }
 
-            if (trigger === 'update') {
-                const dbData = await prisma.user.findUnique({
-                    where: { id: token.sub },
-                });
+        //     if (trigger === 'update') {
+        //         const dbData = await prisma.user.findUnique({
+        //             where: { id: token.sub },
+        //         });
 
-                if (dbData === null) return token;
-                token.name = dbData.name;
-                token.email = dbData.email;
-                token.picture = dbData.image;
-                // token.emailVerified = dbData.emailVerified;
-            }
-            return token;
-        },
+        //         if (dbData === null) return token;
+        //         token.name = dbData.name;
+        //         token.email = dbData.email;
+        //         token.picture = dbData.image;
+        //         // token.emailVerified = dbData.emailVerified;
+        //     }
+        //     return token;
+        // },
         // async redirect({ url, baseUrl }) {
         //     return baseUrl + '/admin';
         // },
