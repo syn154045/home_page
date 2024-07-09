@@ -3,8 +3,14 @@ import { signUpSchema } from '@/features/validations/admin/loginSchema';
 import bcrypt from 'bcrypt';
 import { NextRequest, NextResponse } from 'next/server';
 
+interface RegisterData {
+    email: string;
+    password: string;
+    passwordConfirm: string;
+}
+
 export async function POST(req: NextRequest) {
-    const data = await req.json();
+    const data: RegisterData = await req.json();
     const { email, password } = data;
 
     // メールアドレス重複確認とバリデーションを同時に行う
