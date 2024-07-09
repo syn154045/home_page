@@ -4,7 +4,7 @@ import { SessionProvider } from 'next-auth/react';
 const AdminLayout = ({ children }: { children: React.ReactNode }) => {
     return (
         <SessionProvider>
-            <div className='w-full bg-admin-base min-h-screen font-redditMono text-admin-text-main'>
+            <div className="min-h-screen w-full bg-admin-base font-redditMono text-admin-text-main">
                 {children}
             </div>
         </SessionProvider>

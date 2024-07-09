@@ -1,6 +1,6 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from '@prisma/client';
 
-// const prismaClientSingleton = () => {
+// const prisma = () => {
 //     return new PrismaClient();
 // };
 
@@ -15,5 +15,8 @@ import { PrismaClient } from "@prisma/client";
 // if (process.env.NODE_ENV !== 'production') globalThis.prismaGlobal = prisma;
 
 // 他の設定例：
-const globalForPrisma = global as unknown as { prisma: PrismaClient | undefined };
+const globalForPrisma = global as unknown as {
+    prisma: PrismaClient | undefined;
+};
+
 export const prisma = globalForPrisma.prisma || new PrismaClient();

@@ -21,18 +21,18 @@
 //             },
 //             async authorize(credentials) {
 //                 const parsedCredentials = loginSchema.safeParse(credentials);
-                
+
 //                 if (parsedCredentials.success) {
 //                     const { email, password } = parsedCredentials.data;
 //                     const user = await getUserByEmail(email);
-                    
+
 //                     if (!user) return null;
-                    
+
 //                     const passwordMatch = await bcrypt.compare(password, user.password);
-                    
+
 //                     if (passwordMatch) return user;
 //                 }
-                
+
 //                 return null;
 //             },
 //         }),

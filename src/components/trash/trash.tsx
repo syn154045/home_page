@@ -25,18 +25,19 @@ const nav1 = () => {
 const nav2 = () => {
     return (
         <label
-        htmlFor="hamburger"
-        className={`relative block h-7 w-9 cursor-pointer bg-transparent transition-all duration-500 ease-in-out`}>
-        <input
-            type="checkbox"
-            id="hamburger"
-            className="peer absolute appearance-none"
-            // checked={isOpen}
-            // onChange={toggleMenu}
-        />
-        <span className="absolute left-0 top-0 block h-0.5 w-full origin-left rotate-0 rounded-lg bg-app-accent opacity-100 transition-all duration-500 ease-in-out peer-checked:left-1 peer-checked:rotate-45" />
-        <span className="absolute left-0 top-1/2 block h-0.5 w-full origin-left -translate-y-1/2 rotate-0 rounded-lg bg-app-accent opacity-100 transition-all duration-500 ease-in-out peer-checked:w-0 peer-checked:opacity-0" />
-        <span className="absolute left-0 top-full block h-0.5 w-full origin-left -translate-y-full rotate-0 rounded-lg bg-app-accent opacity-100 transition-all duration-500 ease-in-out peer-checked:left-1 peer-checked:top-7 peer-checked:-rotate-45" />
-    </label>
-    )
-}
+            htmlFor="hamburger"
+            className={`relative block h-7 w-9 cursor-pointer bg-transparent transition-all duration-500 ease-in-out`}
+        >
+            <input
+                type="checkbox"
+                id="hamburger"
+                className="peer absolute appearance-none"
+                // checked={isOpen}
+                // onChange={toggleMenu}
+            />
+            <span className="absolute left-0 top-0 block h-0.5 w-full origin-left rotate-0 rounded-lg bg-app-accent opacity-100 transition-all duration-500 ease-in-out peer-checked:left-1 peer-checked:rotate-45" />
+            <span className="absolute left-0 top-1/2 block h-0.5 w-full origin-left -translate-y-1/2 rotate-0 rounded-lg bg-app-accent opacity-100 transition-all duration-500 ease-in-out peer-checked:w-0 peer-checked:opacity-0" />
+            <span className="absolute left-0 top-full block h-0.5 w-full origin-left -translate-y-full rotate-0 rounded-lg bg-app-accent opacity-100 transition-all duration-500 ease-in-out peer-checked:left-1 peer-checked:top-7 peer-checked:-rotate-45" />
+        </label>
+    );
+};

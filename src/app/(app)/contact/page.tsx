@@ -7,10 +7,8 @@ export const metadata: Metadata = {
 
 const Contact = () => {
     return (
-        <Body title='CONTACT'>
-            <div className='tablet:flex'>
-                content...
-            </div>
+        <Body title="CONTACT">
+            <div className="tablet:flex">content...</div>
         </Body>
     );
 };

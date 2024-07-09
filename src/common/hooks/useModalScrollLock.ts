@@ -95,5 +95,5 @@ export const useModalScrollLock = (args: UseModalScrollLockArgs) => {
         };
     };
 
-    useEffect(scrollStopBackContent, [isModalOpen]);
+    useEffect(scrollStopBackContent, [scrollLockFixAdd, scrollLockFixRemove]);
 };

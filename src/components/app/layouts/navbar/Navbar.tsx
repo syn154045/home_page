@@ -1,8 +1,8 @@
 'use client';
-import { useCallback, useEffect, useRef, useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { NavButton, HamburgerButton } from '@/components/app/elements/buttons';
+import { HamburgerButton, NavButton } from '@/components/app/elements/buttons';
 import { Divide as Hamburger } from 'hamburger-react';
+import { useRouter } from 'next/navigation';
+import { useCallback, useEffect, useState } from 'react';
 
 const Navbar = () => {
     // TODO: useState乱用廃止, useRef? gsap?
@@ -21,8 +21,7 @@ const Navbar = () => {
     /**
      * スクロール時のナビゲーションをハンバーガーメニューに切り替える
      */
-    
-    
+
     const handleScroll = useCallback(() => {
         // when animating stop getting scroll event
         // console.log(`NA: ${isNavAnimating} /NV: ${isNavVisible} /HA: ${isHamAnimating} /HV: ${isHamVisible}`);
@@ -33,7 +32,7 @@ const Navbar = () => {
          * 2. nav(ham) = hidden / ham(nav) = block  + delay
          * 3. ham(nav) = opacity-100(animation)     + delay
          */
-        if (window.scrollY > 100 && (isNavVisible))  {
+        if (window.scrollY > 100 && isNavVisible) {
             // 1.
             setIsNavVisible(false);
             setIsNavAnimating(true);
@@ -49,7 +48,7 @@ const Navbar = () => {
                     }, 500);
                 }, 300);
             }, 500);
-        } else if (window.scrollY <= 100 && (isHamVisible)) {
+        } else if (window.scrollY <= 100 && isHamVisible) {
             // 1.
             setIsHamVisible(false);
             setIsHamAnimating(true);
@@ -66,7 +65,7 @@ const Navbar = () => {
                 }, 300);
             }, 500);
         }
-    }, [isHamAnimating, isHamVisible, isNavAnimating, isNavVisible]);
+    }, [isHamVisible, isNavVisible]);
 
     /**
      * ハンバーガーメニューの開閉
@@ -126,36 +125,50 @@ const Navbar = () => {
 
     return (
         <nav className="inline-block text-right">
-            <div className={`navbar-container flex h-12 justify-center rounded-full border border-app-accent bg-app-accent/20 transition-all duration-500 ease-in-out ${isNavVisible ? 'w-72' : isNavAnimating? 'w-72' : 'w-16'} ${isHamVisible ? 'w-16' : isHamAnimating ? 'w-16' : 'w-72'}`}>
+            <div
+                className={`navbar-container flex h-12 justify-center rounded-full border border-app-accent bg-app-accent/20 transition-all duration-500 ease-in-out ${isNavVisible ? 'w-72' : isNavAnimating ? 'w-72' : 'w-16'} ${isHamVisible ? 'w-16' : isHamAnimating ? 'w-16' : 'w-72'}`}
+            >
                 {/* navigation list */}
-                <ul className={`px-4 py-2 transition-all duration-500 ease-in-out ${isNavVisible ? 'opacity-100 flex' : (isNavAnimating ? 'opacity-0' : 'hidden')}`}>
+                <ul
+                    className={`px-4 py-2 transition-all duration-500 ease-in-out ${isNavVisible ? 'flex opacity-100' : isNavAnimating ? 'opacity-0' : 'hidden'}`}
+                >
                     <NavButton href="/profile" label="PROFILE" />
                     <NavButton href="/blog" label="BLOG" />
                     <NavButton href="/contact" label="CONTACT" />
                     <NavButton href="/labo" label="LABO" />
                 </ul>
                 {/* hamburger */}
-                <div className={`transition-all duration-500 ease-in-out ${isHamVisible ? 'opacity-100' : (isHamAnimating ? 'opacity-0' : 'hidden')}`}>
-                    <Hamburger toggled={isOpen} toggle={setIsOpen} duration={0.5} rounded color='#4effef' />
+                <div
+                    className={`transition-all duration-500 ease-in-out ${isHamVisible ? 'opacity-100' : isHamAnimating ? 'opacity-0' : 'hidden'}`}
+                >
+                    <Hamburger
+                        toggled={isOpen}
+                        toggle={setIsOpen}
+                        duration={0.5}
+                        rounded
+                        color="#4effef"
+                    />
                 </div>
             </div>
             {isOpen && (
-            <div className={`fixed inset-0 flex items-center justify-center bg-black/50 transition-opacity duration-500`}>
-                <ul className="flex flex-col space-y-6 text-xl text-white">
-                    <li onClick={toggleMenu}>
-                        <HamburgerButton href="/profile" label="PROFILE" />
-                    </li>
-                    <li onClick={toggleMenu}>
-                        <HamburgerButton href="/blog" label="BLOG" />
-                    </li>
-                    <li onClick={toggleMenu}>
-                        <HamburgerButton href="/contact" label="CONTACT" />
-                    </li>
-                    <li onClick={toggleMenu}>
-                        <HamburgerButton href="/labo" label="LABO" />
-                    </li>
-                </ul>
-            </div>
+                <div
+                    className={`fixed inset-0 flex items-center justify-center bg-black/50 transition-opacity duration-500`}
+                >
+                    <ul className="flex flex-col space-y-6 text-xl text-white">
+                        <li onClick={toggleMenu}>
+                            <HamburgerButton href="/profile" label="PROFILE" />
+                        </li>
+                        <li onClick={toggleMenu}>
+                            <HamburgerButton href="/blog" label="BLOG" />
+                        </li>
+                        <li onClick={toggleMenu}>
+                            <HamburgerButton href="/contact" label="CONTACT" />
+                        </li>
+                        <li onClick={toggleMenu}>
+                            <HamburgerButton href="/labo" label="LABO" />
+                        </li>
+                    </ul>
+                </div>
             )}
         </nav>
     );

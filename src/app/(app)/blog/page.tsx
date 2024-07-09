@@ -1,7 +1,7 @@
 'use client';
 
-import { Body } from "@/components/app/layouts";
-import { useEffect, useState } from "react";
+import { Body } from '@/components/app/layouts';
+import { useEffect, useState } from 'react';
 
 interface Blog {
     id: number;
@@ -30,9 +30,9 @@ interface BlogTag {
 
 const Blog = () => {
     const [blogs, setBlogs] = useState<Blog[]>([]);
-    
+
     useEffect(() => {
-        const fetchBlogs = async() => {
+        const fetchBlogs = async () => {
             try {
                 const res = await fetch('/api/blog');
                 const data = await res.json();
@@ -43,9 +43,9 @@ const Blog = () => {
         };
         fetchBlogs();
     }, []);
-    
+
     return (
-        <Body title='BLOG'>
+        <Body title="BLOG">
             {blogs.map((blog) => (
                 <div key={blog.id}>
                     <h2>{blog.title}</h2>

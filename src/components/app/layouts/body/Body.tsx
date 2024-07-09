@@ -1,22 +1,20 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 
 interface BodyProps {
-    title: string,
-    children: ReactNode
-};
+    title: string;
+    children: ReactNode;
+}
 
 const Body = ({ title, children }: BodyProps) => {
     return (
         <>
             <div className="text-3xl tracking-widest">
                 <h1>{title}</h1>
-                <div className="h-[0.125rem] mt-2 bg-gradient-to-r to-80% from-app-accent2 to-transparent" />
+                <div className="mt-2 h-0.5 bg-gradient-to-r from-app-accent2 to-transparent to-80%" />
             </div>
-            <div className="mt-20">
-                {children}
-            </div>
+            <div className="mt-20">{children}</div>
         </>
-    )
-}
+    );
+};
 
 export default Body;
