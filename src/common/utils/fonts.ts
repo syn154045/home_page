@@ -5,6 +5,7 @@ export const MPlusRounded = M_PLUS_Rounded_1c ({
     subsets: ['latin'],
     display: 'swap',
     variable: '--font-mplusrounded',
+    adjustFontFallback: false,
 });
 
 export const UbuntuMono = Ubuntu_Mono ({
@@ -13,6 +14,7 @@ export const UbuntuMono = Ubuntu_Mono ({
     display: 'swap',
     style: ['italic', 'normal'],
     variable: '--font-ubuntumono',
+    adjustFontFallback: false,
 });
 
 export const RedditMono = Reddit_Mono ({
@@ -20,4 +22,5 @@ export const RedditMono = Reddit_Mono ({
     subsets: ['latin'],
     display: 'swap',
     variable: '--font-redditmono',
+    adjustFontFallback: false,
 });
