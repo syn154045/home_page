@@ -67,7 +67,7 @@ const handler = NextAuth({
                 token.name = dbData.name;
                 token.email = dbData.email;
                 token.picture = dbData.image;
-                token.emailVerified = dbData.emailVerified;
+                // token.emailVerified = dbData.emailVerified;
             }
             return token;
         },
