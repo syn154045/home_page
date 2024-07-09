@@ -88,7 +88,7 @@ const Page = () => {
                     </form>
                     <hr className="my-4 w-[300px] border-gray-300" />
                     <div className="flex flex-col items-center">
-                        <button
+                        {/* <button
                             onClick={() => {
                                 signIn('github');
                             }}
@@ -103,7 +103,7 @@ const Page = () => {
                             className="mb-2 h-[35px] w-[300px] border-2 bg-white text-black"
                         >
                             Googleでログイン
-                        </button>
+                        </button> */}
                         <Link href="/admin/register" className="mt-2">
                             新規登録はこちら
                         </Link>

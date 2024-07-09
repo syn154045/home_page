@@ -57,12 +57,10 @@ const handler = NextAuth({
         //         // token.role = user.role;
         //         // token.emailVerified = user.emailVerfied ? user.emailVerfied : null;
         //     }
-
         //     if (trigger === 'update') {
         //         const dbData = await prisma.user.findUnique({
         //             where: { id: token.sub },
         //         });
-
         //         if (dbData === null) return token;
         //         token.name = dbData.name;
         //         token.email = dbData.email;
