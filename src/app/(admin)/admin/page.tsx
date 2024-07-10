@@ -1,38 +1,38 @@
 'use client';
-import { signOut, useSession } from 'next-auth/react';
-import Link from 'next/link';
+import * as Layout from '@/components/admin/layouts';
+import { useSession } from 'next-auth/react';
 
 const Main = () => {
     const { data: session, status } = useSession();
+    // TODO:
+    /**
+     * - 時間帯によって、テキストを変更（おはよう/こんにちは/こんばんは）
+     * - h1タグ文字がひとつずつ表示 -> h2以下のコンテンツをまとめてフェードイン
+     * - 
+     */
 
     return (
         <>
-            <div className="flex flex-col items-center">
-                <h1 className="m-10 text-3xl font-bold">Next Auth</h1>
-                <div className="m-5 flex flex-col items-center">
-                    <div className="m-2">ログイン中のユーザー</div>
-                    {status === 'loading' ? (
-                        <div>loading</div>
-                    ) : (
-                        <p className="font-bold">{session?.user?.email}</p>
+            <Layout.Header />
+            <div className='mt-16 mx-auto w-[95%] max-w-5xl'>
+                <div className="flex flex-col items-center">
+                    <h1 className="text-3xl font-bold">
+                        こんにちは
+                    </h1>
+                    <h2 className='mt-10'>
+                        管理者画面へようこそ。
+                    </h2>
+                    {status === 'unauthenticated' && (
+                        <div className=''>
+                            ログインしていないので、コンテンツ編集できません。
+                        </div>
+                    )}
+                    {status === 'authenticated' && (
+                        <div className=''>
+                            blog...
+                        </div>
                     )}
                 </div>
-                {status === 'authenticated' && (
-                    <button
-                        onClick={() => signOut()}
-                        className="rounded-lg bg-red-500 px-3 py-2 text-xs text-white"
-                    >
-                        サインアウトする
-                    </button>
-                )}
-                {status === 'unauthenticated' && (
-                    <Link
-                        href="/admin/login"
-                        className="rounded-lg bg-red-500 px-3 py-2 text-xs text-white"
-                    >
-                        ログイン
-                    </Link>
-                )}
             </div>
         </>
     );

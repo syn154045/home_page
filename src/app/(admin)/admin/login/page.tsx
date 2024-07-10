@@ -1,11 +1,19 @@
 'use client';
+import AuthInput from '@/components/admin/elements/inputs/_authInput';
 import { loginSchema } from '@/features/validations/admin/loginSchema';
+import { faFeatherPointed } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { signIn, useSession } from 'next-auth/react';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
-import React, { useState } from 'react';
+import { ReactNode, useState } from 'react';
 import { useForm } from 'react-hook-form';
+
+interface Error {
+    email: [];
+    password: [];
+};
 
 const Page = () => {
     const { data: session, status } = useSession();
@@ -43,71 +51,66 @@ const Page = () => {
             setResError(resError.errors);
         }
     };
+    
+    // password visible
+    const [isVisiblePass, setIsVisiblePass] = useState(false);
+    const togglePass = () => {
+        setIsVisiblePass(!isVisiblePass);
+    };
+    
     return (
         <>
-            <div className="flex h-screen w-full flex-col items-center justify-center text-sm">
-                <div className="flex flex-col items-center justify-center rounded-2xl border-2 p-10">
-                    <p className="mb-5 text-2xl font-bold">ログイン画面</p>
-                    <form
-                        onSubmit={handleSubmit(handleLogin)}
-                        className="flex flex-col items-center"
-                    >
-                        <div className="mb-4 text-xs font-bold text-red-400">
-                            {resError as React.ReactNode}
+            <div className="w-screen h-full pt-20 tablet:pt-0 tablet:h-screen tablet:overflow-y-hidden flex flex-col justify-center items-center">
+                <div className="flex items-center text-3xl tablet:text-4xl font-semibold text-center">
+                    <FontAwesomeIcon icon={faFeatherPointed} />
+                    <p className="pl-5">Log in</p>
+                </div>
+                <div className="mt-6 w-[95%] max-w-2xl">
+                    <form onSubmit={handleSubmit(handleLogin)} className="relative w-full">
+                        <div className='h-4 text-sm text-elem-alert'>
+                            { resError as ReactNode }
                         </div>
-                        <label htmlFor="email">
-                            <p>メールアドレス</p>
-                            <input
-                                type="text"
-                                id="email"
-                                {...register('email')}
-                                className=" mb-2 h-[35px] w-[300px] border-2 px-2"
-                            />
-                            <div className="mb-2 text-xs font-bold text-red-400">
-                                {errors.email?.message as React.ReactNode}
+                        <div className="relative mt-8">
+                            <AuthInput inputId='email' inputType='email' label='Email' register={register('email')} />
+                            <div className='h-4 text-sm text-elem-alert'>
+                                {errors.email?.message as ReactNode}
+                                {resError?.email?.map((error, index) => (
+                                    <p key={index}>{error}</p>
+                                ))}
                             </div>
-                        </label>
-                        <label htmlFor="password">
-                            <p>パスワード</p>
-                            <input
-                                type="password"
-                                id="password"
-                                {...register('password')}
-                                className=" mb-2 h-[35px] w-[300px] border-2 px-2"
-                            />
-                            <div className="mb-2 text-xs font-bold text-red-400">
-                                {errors.password?.message as React.ReactNode}
+                        </div>
+                        <div className="relative mt-8">
+                            <AuthInput inputId='password' inputType='password' label='Password' register={register('password')} />
+                            <div className='h-4 text-sm text-elem-alert'>
+                                {errors.password?.message as ReactNode}
+                                {resError?.password?.map((error, index) => (
+                                    <p key={index}>{error}</p>
+                                ))}
                             </div>
-                        </label>
-                        <button
-                            type="submit"
-                            className="mt-2 h-[35px] w-[300px] bg-gray-700 text-white"
-                        >
-                            ログイン
-                        </button>
+                        </div>
+                        {/* submit button */}
+                        <div className="w-4/5 mx-auto mt-8 flex flex-col">
+                            <button
+                                type="submit"
+                                className="w-full bg-admin-accent p-2 rounded-lg hover:bg-opacity-80 focus:outline-none focus:bg-opacity-80 transition-opacity duration-300"
+                            >
+                                Log in
+                            </button>
+                            {/* onClick=() => {signIn('google')} */}
+                            <button
+                                disabled
+                                className='w-full bg-admin-accent p-2 rounded-lg mt-5'
+                            >
+                                Log in with google
+                                <span className="text-xs text-admin-text-sub">(* Oops! not implemented...)</span>
+                            </button>
+                        </div>
                     </form>
-                    <hr className="my-4 w-[300px] border-gray-300" />
-                    <div className="flex flex-col items-center">
-                        {/* <button
-                            onClick={() => {
-                                signIn('github');
-                            }}
-                            className="mb-2 h-[35px] w-[300px] border-2 bg-white text-black"
-                        >
-                            Githubでログイン
-                        </button>
-                        <button
-                            onClick={() => {
-                                signIn('google');
-                            }}
-                            className="mb-2 h-[35px] w-[300px] border-2 bg-white text-black"
-                        >
-                            Googleでログイン
-                        </button> */}
-                        <Link href="/admin/register" className="mt-2">
-                            新規登録はこちら
-                        </Link>
-                    </div>
+                </div>
+                <div className="mt-8 pb-10 tablet:pb-0">
+                    <Link href="/admin/register" className='text-sm text-admin-text-main hover:opacity-60 transition-all duration-300 hover:border-b hover:border-admin-text-main'>
+                        Signup Here.
+                    </Link>
                 </div>
             </div>
         </>

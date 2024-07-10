@@ -1,8 +1,7 @@
-import React from 'react';
 import { Navbar } from '@/components/app/layouts';
 import Image from 'next/image';
-import HeaderLogo from '~/public/Logo.png';
 import Link from 'next/link';
+import HeaderLogo from '~/public/Logo.png';
 
 const Header = () => {
     return (
