@@ -30,7 +30,6 @@ const Page = () => {
 
     //セッション判定
     if (session) {
-        console.log('hoge');
         redirect('/admin');
     }
 
@@ -87,6 +86,11 @@ const Page = () => {
                                     <p key={index}>{error}</p>
                                 ))}
                             </div>
+                            <div className='absolute -top-5 right-8 text-sm '>
+                                <Link href="/admin/forgot-password" className='hover:opacity-60 transition-all duration-300 hover:border-b hover:border-admin-text-main' >
+                                Forgot password?
+                                </Link>
+                            </div>
                         </div>
                         {/* submit button */}
                         <div className="w-4/5 mx-auto mt-8 flex flex-col">
@@ -108,7 +112,7 @@ const Page = () => {
                     </form>
                 </div>
                 <div className="mt-8 pb-10 tablet:pb-0">
-                    <Link href="/admin/register" className='text-sm text-admin-text-main hover:opacity-60 transition-all duration-300 hover:border-b hover:border-admin-text-main'>
+                    <Link href="/admin/register" className='text-sm hover:opacity-60 transition-all duration-300 hover:border-b hover:border-admin-text-main'>
                         Signup Here.
                     </Link>
                 </div>

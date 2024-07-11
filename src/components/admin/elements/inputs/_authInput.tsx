@@ -46,12 +46,12 @@ const AuthInput = ({ inputId, inputType, label, register }: AuthInputProps) => {
                     <span
                         onClick={togglePass}
                         role="presentation"
-                        className="absolute right-5 top-2.5 cursor-pointer"
+                        className="absolute right-5 top-3 cursor-pointer"
                     >
                         {isPassVisible ? (
-                            <FontAwesomeIcon icon={faEye} />
+                            <FontAwesomeIcon icon={faEye} className='w-6 h-6' />
                         ) : (
-                            <FontAwesomeIcon icon={faEyeSlash} />
+                            <FontAwesomeIcon icon={faEyeSlash} className='w-6 h-6' />
                         )}
                     </span>
                 )}

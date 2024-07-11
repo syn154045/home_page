@@ -4,9 +4,9 @@ import { signUpSchema } from '@/features/validations/admin/loginSchema';
 import { faCrow } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { signIn, useSession } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
 import Link from 'next/link';
-import { redirect } from 'next/navigation';
+import { redirect, useRouter } from 'next/navigation';
 import { ReactNode, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
@@ -19,6 +19,7 @@ interface Error {
 const Page = () => {
     const { data: session, status } = useSession();
     const [resError, setResError] = useState<Error>();
+    const router = useRouter();
 
     const {
         register,
@@ -46,7 +47,8 @@ const Page = () => {
             method: 'POST',
         });
         if (res.ok) {
-            signIn('credentials', { email: email, password: password });
+            // signIn('credentials', { email: email, password: password });
+            router.push('/admin');
         } else {
             const resError = await res.json();
             setResError(resError.errors);

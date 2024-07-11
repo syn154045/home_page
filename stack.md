@@ -8,6 +8,14 @@
 - APP
   - ページのイメージ感の整理
 
+
+## env local
+```.env
+# [MAILER] Resend
+RESEND_EMAIL_FROM="onboarding@resend.dev"
+RESEND_API_KEY=re_FUWKDNxw_AW5NsHTWggtnvGx1UJaZk8ez
+```
+
 # color palette...
 ```ts:tailwind.config.ts
 theme: { extend: { colors: {

@@ -12,7 +12,7 @@ datasource db {
   directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
 }
 
-
+// application user info
 model User {
   id            String          @id @default(cuid())
   name          String?
@@ -28,6 +28,7 @@ model User {
   updatedAt DateTime @updatedAt
 }
 
+// outside provider (google, github, etc.)
 model Account {
   userId            String
   type              String
@@ -49,6 +50,7 @@ model Account {
   @@id([provider, providerAccountId])
 }
 
+// session state (*not use for email & password Credentials)
 model Session {
   sessionToken String   @unique
   userId       String
@@ -59,6 +61,7 @@ model Session {
   updatedAt DateTime @updatedAt
 }
 
+// verify (identifier -> mail)
 model VerificationToken {
   identifier String
   token      String
