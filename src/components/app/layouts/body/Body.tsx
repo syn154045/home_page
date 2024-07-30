@@ -12,7 +12,7 @@ const Body = ({ title, children }: BodyProps) => {
                 <h1>{title}</h1>
                 <div className="mt-2 h-0.5 bg-gradient-to-r from-app-accent2 to-transparent to-80%" />
             </div>
-            <div className="mt-20">{children}</div>
+            <section className="mt-20">{children}</section>
         </>
     );
 };

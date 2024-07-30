@@ -5,7 +5,7 @@ import HeaderLogo from '~/public/Logo.png';
 
 const Header = () => {
     return (
-        <div className="sticky top-0 flex h-36 bg-gradient-to-b from-app-base from-30% to-transparent px-5 py-4 font-ubuntuMono">
+        <header className="sticky top-0 flex h-36 bg-gradient-to-b from-app-base from-30% to-transparent px-5 py-4 font-ubuntuMono">
             {/* tablet~ */}
             <div className="my-auto hidden w-full justify-between tablet:flex">
                 <Link href={'/'} className="self-center rounded-xl">
@@ -27,7 +27,7 @@ const Header = () => {
                     />
                 </Link>
             </div>
-        </div>
+        </header>
     );
 };
 
