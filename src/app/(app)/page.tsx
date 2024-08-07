@@ -9,9 +9,13 @@ const Home = () => {
                     <h1 className="text-4xl">
                         welcome
                     </h1>
+                    
                 </section>
                 <section className="p-8">
                     main content...
+                    <div className="h-screen">
+                        main content...
+                    </div>
                 </section>
             </main>
         </>
