@@ -1,3 +1,4 @@
+// components/elements/three/_ThreeScene.tsx
 'use client';
 
 import { getFresnelMat } from '@/lib/three/GetFresnelMat';
@@ -89,7 +90,7 @@ const ThreeScene = () => {
         // });
         // const mesh2 = new THREE.Mesh(geometry2, material2);
         // mesh2.scale.setScalar(1.03);
-        // group.add(mesh2);
+        // earthGroup.add(mesh2);
 
         // 地球
         const earthGeometry = new THREE.IcosahedronGeometry(1, 12);
@@ -241,5 +242,5 @@ const ThreeScene = () => {
     return <div ref={mountRef} className="fixed top-0 left-0 w-full h-full" />;
 };
 
-export default ThreeScene;
+// export default ThreeScene;
 
