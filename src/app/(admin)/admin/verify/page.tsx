@@ -1,8 +1,6 @@
 'use client';
 
-import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
 
 interface QueryParamProps {
     params: { slug: string };
@@ -10,26 +8,36 @@ interface QueryParamProps {
 }
 
 const VerifyEmail = ({ params, searchParams }: QueryParamProps) => {
-    // const search = useLocation().search;
+    // const search = useLocation().search;         // import { useLocation } from 'react-router-dom';
     // const query = new URLSearchParams(search);
     const token = searchParams.token;
     const email = searchParams.email;
     const [status, setStatus] = useState('verifying');
 
     useEffect(() => {
-        if (token) {
-            axios
-                .post('/api/admin/verify-email', { token, email })
-                .then((response) => {
-                    setStatus('verified');
-                })
-                .catch((error) => {
-                    console.log(error);
+        if (!token) return;
 
-                    setStatus('error');
+        const verify = async () => {
+            try {
+                const res = await fetch('/api/admin/verify-email', {
+                    headers: {
+                        'Content-type': 'application/json',
+                    },
+                    body: JSON.stringify({ token, email }),
+                    method: 'POST',
                 });
-        }
-    }, [token]);
+
+                if (!res.ok) {
+                    throw new Error('メールの検証に失敗しました');
+                }
+                setStatus('verified');
+            } catch (error) {
+                setStatus('error');
+            }
+        };
+
+        verify();
+    }, [token, email]);
 
     if (status === 'verifying') {
         return <p>メールアドレスを確認中です...</p>;

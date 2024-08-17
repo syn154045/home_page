@@ -129,7 +129,7 @@ const Page = () => {
                         <div className="mx-auto mt-8 flex w-4/5 flex-col">
                             <button
                                 type="submit"
-                                className="w-full rounded-lg bg-admin-accent p-2 transition-opacity duration-300 hover:bg-opacity-80 focus:bg-opacity-80 focus:outline-none"
+                                className="w-full rounded-lg bg-admin-accent p-2 transition-opacity duration-300 hover:bg-admin-accent/80 focus:bg-admin-accent/80 focus:outline-none"
                             >
                                 Sign Up
                             </button>

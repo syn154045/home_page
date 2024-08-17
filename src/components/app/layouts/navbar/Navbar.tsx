@@ -106,7 +106,7 @@ const Navbar = () => {
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    }, [isHamVisible, isNavVisible]);
+    }, [handleScroll, isHamVisible, isNavVisible]);
 
     /**
      * ハンバーガートグルイベント
