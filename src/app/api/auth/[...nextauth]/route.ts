@@ -47,9 +47,7 @@ const handler = NextAuth({
     session: {
         strategy: 'jwt',
     },
-    callbacks: {
-    },
+    callbacks: {},
 });
 
 export { handler as GET, handler as POST };
-

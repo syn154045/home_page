@@ -2,7 +2,6 @@ import { prisma } from '@/common/utils/prismadb';
 import bcrypt from 'bcrypt';
 import { NextRequest, NextResponse } from 'next/server';
 
-
 interface LoginData {
     email: string;
     password: string;

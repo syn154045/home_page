@@ -13,7 +13,7 @@ import { useForm } from 'react-hook-form';
 interface Error {
     email: [];
     password: [];
-};
+}
 
 const Page = () => {
     const { data: session, status } = useSession();
@@ -50,28 +50,36 @@ const Page = () => {
             setResError(resError.errors);
         }
     };
-    
+
     // password visible
     const [isVisiblePass, setIsVisiblePass] = useState(false);
     const togglePass = () => {
         setIsVisiblePass(!isVisiblePass);
     };
-    
+
     return (
         <>
-            <div className="w-screen h-full pt-20 tablet:pt-0 tablet:h-screen tablet:overflow-y-hidden flex flex-col justify-center items-center">
-                <div className="flex items-center text-3xl tablet:text-4xl font-semibold text-center">
+            <div className="flex h-full w-screen flex-col items-center justify-center pt-20 tablet:h-screen tablet:overflow-y-hidden tablet:pt-0">
+                <div className="flex items-center text-center text-3xl font-semibold tablet:text-4xl">
                     <FontAwesomeIcon icon={faFeatherPointed} />
                     <p className="pl-5">Log in</p>
                 </div>
                 <div className="mt-6 w-[95%] max-w-2xl">
-                    <form onSubmit={handleSubmit(handleLogin)} className="relative w-full">
-                        <div className='h-4 text-sm text-elem-alert'>
-                            { resError as ReactNode }
+                    <form
+                        onSubmit={handleSubmit(handleLogin)}
+                        className="relative w-full"
+                    >
+                        <div className="h-4 text-sm text-elem-alert">
+                            {resError as ReactNode}
                         </div>
                         <div className="relative mt-8">
-                            <AuthInput inputId='email' inputType='email' label='Email' register={register('email')} />
-                            <div className='h-4 text-sm text-elem-alert'>
+                            <AuthInput
+                                inputId="email"
+                                inputType="email"
+                                label="Email"
+                                register={register('email')}
+                            />
+                            <div className="h-4 text-sm text-elem-alert">
                                 {errors.email?.message as ReactNode}
                                 {resError?.email?.map((error, index) => (
                                     <p key={index}>{error}</p>
@@ -79,40 +87,53 @@ const Page = () => {
                             </div>
                         </div>
                         <div className="relative mt-8">
-                            <AuthInput inputId='password' inputType='password' label='Password' register={register('password')} />
-                            <div className='h-4 text-sm text-elem-alert'>
+                            <AuthInput
+                                inputId="password"
+                                inputType="password"
+                                label="Password"
+                                register={register('password')}
+                            />
+                            <div className="h-4 text-sm text-elem-alert">
                                 {errors.password?.message as ReactNode}
                                 {resError?.password?.map((error, index) => (
                                     <p key={index}>{error}</p>
                                 ))}
                             </div>
-                            <div className='absolute -top-5 right-8 text-sm '>
-                                <Link href="/admin/forgot-password" className='hover:opacity-60 transition-all duration-300 hover:border-b hover:border-admin-text-main' >
-                                Forgot password?
+                            <div className="absolute -top-5 right-8 text-sm ">
+                                <Link
+                                    href="/admin/forgot-password"
+                                    className="transition-all duration-300 hover:border-b hover:border-admin-text-main hover:opacity-60"
+                                >
+                                    Forgot password?
                                 </Link>
                             </div>
                         </div>
                         {/* submit button */}
-                        <div className="w-4/5 mx-auto mt-8 flex flex-col">
+                        <div className="mx-auto mt-8 flex w-4/5 flex-col">
                             <button
                                 type="submit"
-                                className="w-full bg-admin-accent p-2 rounded-lg hover:bg-opacity-80 focus:outline-none focus:bg-opacity-80 transition-opacity duration-300"
+                                className="w-full rounded-lg bg-admin-accent p-2 transition-opacity duration-300 hover:bg-opacity-80 focus:bg-opacity-80 focus:outline-none"
                             >
                                 Log in
                             </button>
                             {/* onClick=() => {signIn('google')} */}
                             <button
                                 disabled
-                                className='w-full bg-admin-accent p-2 rounded-lg mt-5'
+                                className="mt-5 w-full rounded-lg bg-admin-accent p-2"
                             >
                                 Log in with google
-                                <span className="text-xs text-admin-text-sub">(* Oops! not implemented...)</span>
+                                <span className="text-xs text-admin-text-sub">
+                                    (* Oops! not implemented...)
+                                </span>
                             </button>
                         </div>
                     </form>
                 </div>
                 <div className="mt-8 pb-10 tablet:pb-0">
-                    <Link href="/admin/register" className='text-sm hover:opacity-60 transition-all duration-300 hover:border-b hover:border-admin-text-main'>
+                    <Link
+                        href="/admin/register"
+                        className="text-sm transition-all duration-300 hover:border-b hover:border-admin-text-main hover:opacity-60"
+                    >
                         Signup Here.
                     </Link>
                 </div>

@@ -18,7 +18,7 @@ export default function RootLayout({
     return (
         <html lang="ja">
             <body
-                className={`${MPlusRounded.variable} ${UbuntuMono.variable} ${RedditMono.variable} ${MPlusRounded.className}`}
+                className={`${MPlusRounded.variable} ${UbuntuMono.variable} ${RedditMono.variable} ${MPlusRounded.className} bg-app-base`}
             >
                 {children}
             </body>

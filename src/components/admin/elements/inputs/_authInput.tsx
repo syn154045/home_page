@@ -30,7 +30,13 @@ const AuthInput = ({ inputId, inputType, label, register }: AuthInputProps) => {
             <div className="relative">
                 <input
                     id={inputId}
-                    type={!isPass ? inputType : !isPassVisible ? inputType : 'text'}
+                    type={
+                        !isPass
+                            ? inputType
+                            : !isPassVisible
+                              ? inputType
+                              : 'text'
+                    }
                     {...register}
                     className="peer w-full bg-transparent p-2 outline-none placeholder:text-transparent"
                     placeholder={label}
@@ -49,9 +55,12 @@ const AuthInput = ({ inputId, inputType, label, register }: AuthInputProps) => {
                         className="absolute right-5 top-3 cursor-pointer"
                     >
                         {isPassVisible ? (
-                            <FontAwesomeIcon icon={faEye} className='w-6 h-6' />
+                            <FontAwesomeIcon icon={faEye} className="size-6" />
                         ) : (
-                            <FontAwesomeIcon icon={faEyeSlash} className='w-6 h-6' />
+                            <FontAwesomeIcon
+                                icon={faEyeSlash}
+                                className="size-6"
+                            />
                         )}
                     </span>
                 )}

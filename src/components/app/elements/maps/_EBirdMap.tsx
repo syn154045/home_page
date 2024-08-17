@@ -44,14 +44,11 @@
 //         };
 //         loadMap();
 //     }, [markers]);
-    
+
 //     return <div ref={mapRef} style={{ width: '100%', height: '400px', marginBottom: '20px' }}></div>;
 // }
 
 // export default EBirdMap;
-
-
-
 
 // // 初期化用の定数
 // // const INITIALIZE_LAT = 35.68238;  // 緯度

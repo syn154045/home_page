@@ -1,4 +1,5 @@
-import * as THREE from "three";
+// lib/three/_GetStarField.ts
+import * as THREE from 'three';
 
 export default function getStarfield({ numStars = 500 } = {}) {
     function randomSpherePoint() {
@@ -30,14 +31,12 @@ export default function getStarfield({ numStars = 500 } = {}) {
         colors.push(col.r, col.g, col.b);
     }
     const geo = new THREE.BufferGeometry();
-    geo.setAttribute("position", new THREE.Float32BufferAttribute(verts, 3));
-    geo.setAttribute("color", new THREE.Float32BufferAttribute(colors, 3));
+    geo.setAttribute('position', new THREE.Float32BufferAttribute(verts, 3));
+    geo.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
     const mat = new THREE.PointsMaterial({
         size: 0.2,
         vertexColors: true,
-        map: new THREE.TextureLoader().load(
-            "../../../../assets/star.png"
-        ),
+        map: new THREE.TextureLoader().load('../../../../assets/star.png'),
     });
     const points = new THREE.Points(geo, mat);
     return points;

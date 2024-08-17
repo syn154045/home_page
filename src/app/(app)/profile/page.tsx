@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
-import ProfileImg from '~/public/profile.png';
+// import ProfileImg from '~/public/profile.png';
+import ProfileImg from '~/public/bird.jpeg';
 import SkillImg from '~/public/skill.png';
 import { Body } from '@/components/app/layouts';
 import { ProfileImage } from '@/components/app/elements/images';
@@ -31,7 +32,7 @@ const Profile = () => {
                             バックエンド寄りのフルスタックエンジニア.
                         </p>
                         <p className="mt-1">
-                            現在はPythonを使用した組込ソフトの勉強中...
+                            現在はPython・Tensorflowを使用したディープラーニングの勉強中...
                         </p>
                     </div>
                 </div>

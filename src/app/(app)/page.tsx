@@ -1,25 +1,44 @@
-import BubbleScene from "@/components/app/elements/three/_BubbleScene";
-import { Body } from "@/components/app/layouts";
+'use client';
 
+import BubbleScene from '@/components/app/elements/three/_BubbleScene';
+import { Body } from '@/components/app/layouts';
+import { gsap } from 'gsap';
+import { useEffect, useState } from 'react';
 
 const Home = () => {
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            await new Promise((resolve) => setTimeout(resolve, 3000));
+            setIsLoading(false);
+        };
+
+        fetchData();
+    }, []);
+
+    useEffect(() => {
+        if (!isLoading) {
+            // gsap.to()
+        }
+    });
+
     return (
         <>
             <BubbleScene />
             <main className="relative z-10">
-                <section className="h-screen flex items-center justify-center">
-                    <h1 className="text-4xl">
-                        Welcome
-                    </h1>
+                <section className="flex h-screen items-center justify-center">
+                    <h1 className="text-4xl">Welcome</h1>
                 </section>
-                <section className="mt-10">
+                <section className="mt-40">
                     <Body title="ABOUT">
                         <div className="text-xl font-semibold tracking-[0.2em]">
                             syn: συν
                         </div>
                         <div className="mt-6 flex flex-col space-y-2 tracking-widest">
                             <p>
-                                synchronicity, sympathy, symmetry, synanthrope ...
+                                synchronicity, sympathy, symmetry, synanthrope
+                                ...
                             </p>
                             <p>
                                 「共に」、「同じ」という意味を持つ古代ギリシア語を接頭辞に持つ。
@@ -36,29 +55,21 @@ const Home = () => {
                             <p>
                                 テクノロジーはすべてのパーツが大きな傑作に貢献するシンフォニーのようなもの。
                             </p>
-                            <p>
-                                複雑なコードに没頭する時も、
-                            </p>
-                            <p>
-                                チームとブレインストーミングする時も、
-                            </p>
+                            <p>複雑なコードに没頭する時も、</p>
+                            <p>チームとブレインストーミングする時も、</p>
                             <p>
                                 努力のシンクロニシティに喜びを見出し、強さと視点を組み合わせることで真の革新が生まれると信じている。
                             </p>
                             <p>
                                 どのプロジェクトにおいても、機能的であるだけでなく、美しく調和の取れたシステムを作り出すことを目指しており、
                             </p>
-                            <p>
-                                「syn」が示す対称性と統一性を反映しています。
-                            </p>
+                            <p>「syn」が示す対称性と統一性を反映しています。</p>
                         </div>
                     </Body>
                 </section>
-                <section className="mt-10">
+                <section className="mt-40">
                     <Body title="LINKS">
-                        <div className="">
-                            
-                        </div>
+                        <div className=""></div>
                     </Body>
                 </section>
             </main>

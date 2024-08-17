@@ -11,6 +11,7 @@ import { ReactNode, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 interface Error {
+    name: [];
     email: [];
     password: [];
     passwordConfirm: [];
@@ -56,54 +57,99 @@ const Page = () => {
     };
     return (
         <>
-            <div className="w-screen h-full pt-20 tablet:pt-0 tablet:h-screen tablet:overflow-y-hidden flex flex-col justify-center items-center">
-                <div className="flex items-center text-3xl tablet:text-4xl font-semibold text-center">
+            <div className="flex h-full w-screen flex-col items-center justify-center pt-20 tablet:h-screen tablet:overflow-y-hidden tablet:pt-0">
+                <div className="flex items-center text-center text-3xl font-semibold tablet:text-4xl">
                     <FontAwesomeIcon icon={faCrow} />
                     <p className="pl-5">Sign Up</p>
                 </div>
                 <div className="mt-6 w-[95%] max-w-2xl">
-                    <form onSubmit={handleSubmit(handleRegist)} className='relative w-full'>
+                    <form
+                        onSubmit={handleSubmit(handleRegist)}
+                        className="relative w-full"
+                    >
                         <div className="mt-8">
-                            <AuthInput inputId='email' inputType='email' label='Email' register={register('email')} />
-                            <div className='h-4 text-sm text-elem-alert'>
+                            <AuthInput
+                                inputId="name"
+                                inputType="text"
+                                label="Name"
+                                register={register('name')}
+                            />
+                            <div className="h-4 text-sm text-elem-alert">
+                                {errors.name?.message as ReactNode}
+                                {resError?.name?.map((error, index) => (
+                                    <p key={index}>{error}</p>
+                                ))}
+                            </div>
+                        </div>
+                        <div className="mt-8">
+                            <AuthInput
+                                inputId="email"
+                                inputType="email"
+                                label="Email"
+                                register={register('email')}
+                            />
+                            <div className="h-4 text-sm text-elem-alert">
                                 {errors.email?.message as ReactNode}
                                 {resError?.email?.map((error, index) => (
                                     <p key={index}>{error}</p>
                                 ))}
                             </div>
                         </div>
-                        <div className='mt-8'>
-                            <AuthInput inputId='password' inputType='password' label='Password' register={register('password')} />
-                            <div className='h-4 text-sm text-elem-alert'>
+                        <div className="mt-8">
+                            <AuthInput
+                                inputId="password"
+                                inputType="password"
+                                label="Password"
+                                register={register('password')}
+                            />
+                            <div className="h-4 text-sm text-elem-alert">
                                 {errors.password?.message as ReactNode}
                                 {resError?.password?.map((error, index) => (
                                     <p key={index}>{error}</p>
                                 ))}
                             </div>
                         </div>
-                        <div className='mt-8'>
-                            <AuthInput inputId='passwordConfirm' inputType='password' label='PasswordConfirm' register={register('passwordConfirm')} />
-                            <div className='h-4 text-sm text-elem-alert'>
+                        <div className="mt-8">
+                            <AuthInput
+                                inputId="passwordConfirm"
+                                inputType="password"
+                                label="Password confirm"
+                                register={register('passwordConfirm')}
+                            />
+                            <div className="h-4 text-sm text-elem-alert">
                                 {errors.passwordConfirm?.message as ReactNode}
-                                {resError?.passwordConfirm?.map((error,index) => (
-                                    <p key={index}>{error}</p>
-                                ))}
+                                {resError?.passwordConfirm?.map(
+                                    (error, index) => (
+                                        <p key={index}>{error}</p>
+                                    ),
+                                )}
                             </div>
                         </div>
                         {/* submit button */}
-                        <div className='w-4/5 mx-auto mt-8 flex flex-col'>
-                            <button type='submit' className='w-full bg-admin-accent p-2 rounded-lg hover:bg-opacity-80 focus:outline-none focus:bg-opacity-80 transition-opacity duration-300'>
+                        <div className="mx-auto mt-8 flex w-4/5 flex-col">
+                            <button
+                                type="submit"
+                                className="w-full rounded-lg bg-admin-accent p-2 transition-opacity duration-300 hover:bg-opacity-80 focus:bg-opacity-80 focus:outline-none"
+                            >
                                 Sign Up
                             </button>
-                            <button disabled className='w-full bg-admin-accent p-2 rounded-lg mt-5'>
+                            <button
+                                disabled
+                                className="mt-5 w-full rounded-lg bg-admin-accent p-2"
+                            >
                                 Sign Up with google
-                                <span className="text-xs text-admin-text-sub">(* Oops! not implemented...)</span>
+                                <span className="text-xs text-admin-text-sub">
+                                    (* Oops! not implemented...)
+                                </span>
                             </button>
                         </div>
                     </form>
                 </div>
-                <div className='mt-8 pb-10 tablet:pb-0'>
-                    <Link href="/admin/login" className='text-sm text-admin-text-main hover:opacity-60 transition-all duration-300 hover:border-b hover:border-admin-text-main'>
+                <div className="mt-8 pb-10 tablet:pb-0">
+                    <Link
+                        href={'/admin/login'}
+                        className="text-sm text-admin-text-main transition-all duration-300 hover:border-b hover:border-admin-text-main hover:opacity-60"
+                    >
                         Login Here.
                     </Link>
                 </div>

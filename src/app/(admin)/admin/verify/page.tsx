@@ -1,25 +1,31 @@
-// src/app/admin/verify/[token]/page.tsx
+'use client';
 
 import axios from 'axios';
-import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
-const VerifyEmail = () => {
-    const router = useRouter();
-    const search = useLocation().search;
-    const query = new URLSearchParams(search);
-    const token = query.get('token');
-    const email = query.get('email');
+interface QueryParamProps {
+    params: { slug: string };
+    searchParams: { [key: string]: string | string[] | undefined };
+}
+
+const VerifyEmail = ({ params, searchParams }: QueryParamProps) => {
+    // const search = useLocation().search;
+    // const query = new URLSearchParams(search);
+    const token = searchParams.token;
+    const email = searchParams.email;
     const [status, setStatus] = useState('verifying');
 
     useEffect(() => {
         if (token) {
-            axios.post('/api/admin/verify-email', { token, email })
-                .then(response => {
+            axios
+                .post('/api/admin/verify-email', { token, email })
+                .then((response) => {
                     setStatus('verified');
                 })
-                .catch(error => {
+                .catch((error) => {
+                    console.log(error);
+
                     setStatus('error');
                 });
         }

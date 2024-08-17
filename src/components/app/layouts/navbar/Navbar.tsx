@@ -5,7 +5,6 @@ import { useRouter } from 'next/navigation';
 import { useCallback, useEffect, useState } from 'react';
 
 const Navbar = () => {
-    // TODO: useState乱用廃止, useRef? gsap?
     // nav visibility & animation
     const [isNavVisible, setIsNavVisible] = useState(true);
     const [isNavAnimating, setIsNavAnimating] = useState(true);
@@ -18,10 +17,7 @@ const Navbar = () => {
 
     const router = useRouter();
 
-    /**
-     * スクロール時のナビゲーションをハンバーガーメニューに切り替える
-     */
-
+    /** スクロール時のナビゲーションをハンバーガーメニューに切り替える */
     const handleScroll = useCallback(() => {
         // when animating stop getting scroll event
         // console.log(`NA: ${isNavAnimating} /NV: ${isNavVisible} /HA: ${isHamAnimating} /HV: ${isHamVisible}`);
@@ -133,9 +129,9 @@ const Navbar = () => {
                     className={`px-4 py-2 transition-all duration-500 ease-in-out ${isNavVisible ? 'flex opacity-100' : isNavAnimating ? 'opacity-0' : 'hidden'}`}
                 >
                     <NavButton href="/profile" label="PROFILE" />
+                    <NavButton href="/labo" label="LABO" />
                     <NavButton href="/blog" label="BLOG" />
                     <NavButton href="/contact" label="CONTACT" />
-                    <NavButton href="/labo" label="LABO" />
                 </ul>
                 {/* hamburger */}
                 <div
@@ -159,13 +155,13 @@ const Navbar = () => {
                             <HamburgerButton href="/profile" label="PROFILE" />
                         </li>
                         <li onClick={toggleMenu}>
+                            <HamburgerButton href="/labo" label="LABO" />
+                        </li>
+                        <li onClick={toggleMenu}>
                             <HamburgerButton href="/blog" label="BLOG" />
                         </li>
                         <li onClick={toggleMenu}>
                             <HamburgerButton href="/contact" label="CONTACT" />
-                        </li>
-                        <li onClick={toggleMenu}>
-                            <HamburgerButton href="/labo" label="LABO" />
                         </li>
                     </ul>
                 </div>

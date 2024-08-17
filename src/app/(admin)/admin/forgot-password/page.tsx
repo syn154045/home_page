@@ -1,10 +1,7 @@
 'use client';
 
 const ForgotPassword = () => {
-    return (
-        <>
-        </>
-    );
+    return <></>;
 };
 
 export default ForgotPassword;

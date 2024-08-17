@@ -17,7 +17,10 @@ export async function GET(request: Request) {
             endpoint = `https://api.ebird.org/v2/ref/region/list/subnational2/${parentCode}`;
             break;
         default:
-            return NextResponse.json({ error: 'Invalid type' }, { status: 400 });
+            return NextResponse.json(
+                { error: 'Invalid type' },
+                { status: 400 },
+            );
     }
 
     try {
@@ -30,6 +33,9 @@ export async function GET(request: Request) {
         return NextResponse.json(data);
     } catch (error) {
         console.error(`Error fetching ${type} data:`, error);
-        return NextResponse.json({ error: `Failed to fetch ${type} data` }, { status: 500 });
+        return NextResponse.json(
+            { error: `Failed to fetch ${type} data` },
+            { status: 500 },
+        );
     }
 }

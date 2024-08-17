@@ -12,7 +12,7 @@ const ProfileImage = ({ imgSrc, imgAlt }: ProfileImageProps) => {
                 <Image
                     src={imgSrc}
                     alt={imgAlt}
-                    className="w-full rounded-t-[3rem] rounded-bl-none rounded-br-[3rem] object-cover shadow-2xl tablet:rounded-bl-[3rem] tablet:rounded-tr-none"
+                    className="aspect-square w-full rounded-t-[3rem] rounded-bl-none rounded-br-[3rem] object-cover shadow-2xl tablet:rounded-bl-[3rem] tablet:rounded-tr-none"
                 />
             </div>
         </>

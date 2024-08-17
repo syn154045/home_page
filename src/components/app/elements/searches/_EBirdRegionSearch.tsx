@@ -37,7 +37,9 @@ const EBirdRegionSearch = ({ onSearchComplete }: EBirdRegionSearchProps) => {
 
     const fetchRegions = async (type: string, parentCode = '') => {
         try {
-            const response = await fetch(`/api/eBird/refs?type=${type}&parentCode=${parentCode}`);
+            const response = await fetch(
+                `/api/eBird/refs?type=${type}&parentCode=${parentCode}`,
+            );
             const data = await response.json();
             switch (type) {
                 case 'country':
@@ -56,14 +58,17 @@ const EBirdRegionSearch = ({ onSearchComplete }: EBirdRegionSearchProps) => {
     };
 
     const handleFetchEBirdData = async () => {
-        const regionCode = selectedSubnational2 || selectedSubnational1 || selectedCountry;
+        const regionCode =
+            selectedSubnational2 || selectedSubnational1 || selectedCountry;
         if (!regionCode) {
             alert('地域を選択してください');
             return;
         }
 
         try {
-            const response = await fetch(`/api/eBird/getObs?regionCode=${regionCode}`);
+            const response = await fetch(
+                `/api/eBird/getObs?regionCode=${regionCode}`,
+            );
             const data = await response.json();
             onSearchComplete(data);
         } catch (error) {
@@ -72,8 +77,8 @@ const EBirdRegionSearch = ({ onSearchComplete }: EBirdRegionSearchProps) => {
     };
 
     return (
-        <div className='flex justify-between items-center'>
-            <div className='flex flex-col w-2/3'>
+        <div className="flex items-center justify-between">
+            <div className="flex w-2/3 flex-col">
                 <select
                     value={selectedCountry}
                     onChange={(e) => {
@@ -81,7 +86,7 @@ const EBirdRegionSearch = ({ onSearchComplete }: EBirdRegionSearchProps) => {
                         setSelectedSubnational1('');
                         setSelectedSubnational2('');
                     }}
-                    className="border rounded-lg p-2 bg-app-base focus:outline-none"
+                    className="rounded-lg border bg-app-base p-2 focus:outline-none"
                 >
                     <option value="">国を選択</option>
                     {countries.map((country) => (
@@ -98,7 +103,7 @@ const EBirdRegionSearch = ({ onSearchComplete }: EBirdRegionSearchProps) => {
                             setSelectedSubnational1(e.target.value);
                             setSelectedSubnational2('');
                         }}
-                        className="border rounded-lg p-2 mt-2 bg-app-base focus:outline-none"
+                        className="mt-2 rounded-lg border bg-app-base p-2 focus:outline-none"
                     >
                         <option value="">州/県を選択</option>
                         {subnational1.map((region) => (
@@ -112,8 +117,10 @@ const EBirdRegionSearch = ({ onSearchComplete }: EBirdRegionSearchProps) => {
                 {selectedSubnational1 && (
                     <select
                         value={selectedSubnational2}
-                        onChange={(e) => setSelectedSubnational2(e.target.value)}
-                        className="border rounded-lg p-2 mt-2 bg-app-base focus:outline-none"
+                        onChange={(e) =>
+                            setSelectedSubnational2(e.target.value)
+                        }
+                        className="mt-2 rounded-lg border bg-app-base p-2 focus:outline-none"
                     >
                         <option value="">郡/市を選択</option>
                         {subnational2.map((region) => (
@@ -124,17 +131,17 @@ const EBirdRegionSearch = ({ onSearchComplete }: EBirdRegionSearchProps) => {
                     </select>
                 )}
             </div>
-            
-            <div className='h-12'>
+
+            <div className="h-12">
                 <button
                     onClick={handleFetchEBirdData}
-                    className="bg-blue-500 text-white px-4 py-2 rounded"
+                    className="rounded bg-blue-500 px-4 py-2 text-white"
                 >
                     eBirdデータを取得
                 </button>
             </div>
         </div>
     );
-}
+};
 
 export default EBirdRegionSearch;

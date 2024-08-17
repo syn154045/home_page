@@ -4,7 +4,6 @@
 //     const [ebirdData, setEbirdData] = useState(null);
 //     const mapRef = useRef<HTMLDivElement>(null);
 
-
 //     // useEffect(() => {
 //     //     if (mapRef.current) {
 //     //         const map = new google.maps.Map(mapRef.current, {
@@ -56,7 +55,7 @@ interface Marker {
     comName: string;
     sciName: string;
     howMany: number;
-};
+}
 
 export default function Home() {
     const [eBirdData, setEBirdData] = useState<any>([]);
@@ -67,10 +66,10 @@ export default function Home() {
     const handleSearchComplete = (data: any) => {
         setEBirdData(data);
         console.log(eBirdData);
-        
+
         // console.log(Object.keys(eBirdData)[0].length);
         // if (Object.keys(eBirdData)[0].length === 0) {
-            // setIsEmpty(true);
+        // setIsEmpty(true);
         // }
     };
 
@@ -108,21 +107,23 @@ export default function Home() {
 
     return (
         <div className="p-4">
-            <h1 className="text-2xl font-bold mb-4">eBird地域選択とデータ取得</h1>
+            <h1 className="mb-4 text-2xl font-bold">
+                eBird地域選択とデータ取得
+            </h1>
             <EBirdRegionSearch onSearchComplete={handleSearchComplete} />
             {/* {isMapScriptLoaded && <EBirdMap markers={markers} />} */}
             {Object.keys(eBirdData).length > 0 && (
-                <div className='mt-5'>
-                    <h2 className="text-xl font-semibold mb-2">eBirdデータ結果：</h2>
-                    <pre className="border p-4 rounded-xl overflow-auto">
+                <div className="mt-5">
+                    <h2 className="mb-2 text-xl font-semibold">
+                        eBirdデータ結果：
+                    </h2>
+                    <pre className="overflow-auto rounded-xl border p-4">
                         {JSON.stringify(eBirdData, null, 2)}
                     </pre>
                 </div>
             )}
             {isEmpty && (
-                <div className='mt-5'>
-                    検索結果がありませんでした。
-                </div>
+                <div className="mt-5">検索結果がありませんでした。</div>
             )}
         </div>
     );
