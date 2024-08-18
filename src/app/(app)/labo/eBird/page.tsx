@@ -48,6 +48,7 @@
 // import EBirdMap from '@/components/app/elements/maps/_EBirdMap';
 import EBirdRegionSearch from '@/components/app/elements/searches/_EBirdRegionSearch';
 import { useState } from 'react';
+import { Body } from '@/components/app/layouts';
 
 interface Marker {
     lat: number;
@@ -106,25 +107,27 @@ export default function Home() {
     // }, []);
 
     return (
-        <div className="p-4">
-            <h1 className="mb-4 text-2xl font-bold">
-                eBird地域選択とデータ取得
-            </h1>
-            <EBirdRegionSearch onSearchComplete={handleSearchComplete} />
-            {/* {isMapScriptLoaded && <EBirdMap markers={markers} />} */}
-            {Object.keys(eBirdData).length > 0 && (
-                <div className="mt-5">
-                    <h2 className="mb-2 text-xl font-semibold">
-                        eBirdデータ結果：
-                    </h2>
-                    <pre className="overflow-auto rounded-xl border p-4">
-                        {JSON.stringify(eBirdData, null, 2)}
-                    </pre>
-                </div>
-            )}
-            {isEmpty && (
-                <div className="mt-5">検索結果がありませんでした。</div>
-            )}
-        </div>
+        <Body title='E-BIRD'>
+            <div className="p-4">
+                <h1 className="mb-4 text-2xl font-bold">
+                    eBird地域選択とデータ取得
+                </h1>
+                <EBirdRegionSearch onSearchComplete={handleSearchComplete} />
+                {/* {isMapScriptLoaded && <EBirdMap markers={markers} />} */}
+                {Object.keys(eBirdData).length > 0 && (
+                    <div className="mt-5">
+                        <h2 className="mb-2 text-xl font-semibold">
+                            eBirdデータ結果：
+                        </h2>
+                        <pre className="overflow-auto rounded-xl border p-4">
+                            {JSON.stringify(eBirdData, null, 2)}
+                        </pre>
+                    </div>
+                )}
+                {isEmpty && (
+                    <div className="mt-5">検索結果がありませんでした。</div>
+                )}
+            </div>
+        </Body>
     );
 }

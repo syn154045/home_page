@@ -46,11 +46,16 @@ const Blog = () => {
 
     return (
         <Body title="BLOG">
-            {blogs.map((blog) => (
-                <div key={blog.id}>
-                    <h2>{blog.title}</h2>
-                </div>
-            ))}
+            <>
+            <div className='text-xl text-elem-alert font-semibold tracking-widest'>
+                準備中...
+            </div>
+                {/* {blogs.map((blog) => (
+                    <div key={blog.id}>
+                        <h2>{blog.title}</h2>
+                    </div>
+                ))} */}
+            </>
         </Body>
     );
 };
