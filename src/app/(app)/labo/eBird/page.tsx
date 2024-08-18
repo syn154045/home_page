@@ -107,7 +107,7 @@ export default function Home() {
     // }, []);
 
     return (
-        <Body title='E-BIRD'>
+        <Body title="E-BIRD">
             <div className="p-4">
                 <h1 className="mb-4 text-2xl font-bold">
                     eBird地域選択とデータ取得

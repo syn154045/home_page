@@ -51,7 +51,9 @@ const Thanks = () => {
                     </div>
                     <div>
                         また、記入いただいたメールアドレス：
-                        <span className='px-2 font-medium text-elem-info'>{email}</span>
+                        <span className="px-2 font-medium text-elem-info">
+                            {email}
+                        </span>
                         へ、自動返信の確認メールをお送りいたしました。
                     </div>
                     <div className="mt-20 text-center text-sm font-medium text-app-accent2">

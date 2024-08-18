@@ -21,11 +21,9 @@ const ContactReceived = ({
                     <title>syn:お問い合わせ受信</title>
                 </M.Head>
                 <M.Body className="bg-[#48555C]">
-                    <section className='mx-auto mt-10 mb-16 w-11/12 shadow-2xl max-w-3xl'>
-                        <div className="px-5 py-10 text-[#C5C5C5] text-sm">
-                            <div className="">
-                                お問い合わせを受信しました.
-                            </div>
+                    <section className="mx-auto mb-16 mt-10 w-11/12 max-w-3xl shadow-2xl">
+                        <div className="px-5 py-10 text-sm text-[#C5C5C5]">
+                            <div className="">お問い合わせを受信しました.</div>
                             <div className="mt-2">
                                 以下の内容を確認し、対応をお願いします.
                             </div>
@@ -38,16 +36,12 @@ const ContactReceived = ({
                             {company && (
                                 <div className="mt-2">
                                     <div className="">会社名 :</div>
-                                    <div className="ml-5 mt-1">
-                                        {company}
-                                    </div>
+                                    <div className="ml-5 mt-1">{company}</div>
                                 </div>
                             )}
                             <div className="mt-2">
                                 <div className="">メールアドレス :</div>
-                                <div className="ml-5 mt-1">
-                                    {email}hogehoge
-                                </div>
+                                <div className="ml-5 mt-1">{email}hogehoge</div>
                             </div>
                             <div className="mt-2">
                                 <div className="">お問い合わせ内容 :</div>
