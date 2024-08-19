@@ -2,8 +2,10 @@
 
 import BubbleScene from '@/components/app/elements/three/_BubbleScene';
 import { Body } from '@/components/app/layouts';
-import { gsap } from 'gsap';
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import gitLogo from '~/public/Logos/githubw.png';
+import xLogo from '~/public/Logos/xw.png';
 
 const Home = () => {
     const [isLoading, setIsLoading] = useState(true);
@@ -35,46 +37,81 @@ const Home = () => {
                         <div className="text-xl font-semibold tracking-[0.2em]">
                             syn: συν
                         </div>
-                        <div className="mt-6 flex flex-col space-y-2 tracking-widest">
+                        <div className="mt-6 flex flex-col tracking-widest">
                             <p>
-                                synchronicity, sympathy, symmetry, synanthrope
-                                ...
+                                synchronicity, sympathy, symmetry, synanthrope...
+                            </p>
+                            <p className='mt-2'>
+                                syn とは「共に」、「同じ」という意味を持つ古代ギリシア語の接頭辞。
+                            </p>
+                            <p className='mt-6'>
+                                サイト運営者の名前と同じ響きであり、
                             </p>
                             <p>
-                                「共に」、「同じ」という意味を持つ古代ギリシア語を接頭辞に持つ。
+                                ボーダーレス・ジャンルレスな運営者の思考回路に連関していることから
                             </p>
                             <p>
-                                この結びつきと調和のエッセンスが、ITエンジニアとしての私のアプローチに影響を与えてきた。
+                                この名前を採用しています。
+                            </p>
+                            <p className='mt-8'>
+                                ただただ野鳥を溺愛し、
                             </p>
                             <p>
-                                私の旅路はバックエンド開発からAIモデルの展開まで多岐に亘り、
+                                自然を知る為、自然と渾然一体となる為なら
                             </p>
                             <p>
-                                それぞれの経験が「共に働く」ことで、より多くの成果を達成できることを強化している。
+                                如何なる技術も習得することに労力を厭わない
                             </p>
                             <p>
-                                テクノロジーはすべてのパーツが大きな傑作に貢献するシンフォニーのようなもの。
-                            </p>
-                            <p>複雑なコードに没頭する時も、</p>
-                            <p>チームとブレインストーミングする時も、</p>
-                            <p>
-                                努力のシンクロニシティに喜びを見出し、強さと視点を組み合わせることで真の革新が生まれると信じている。
+                                しがないエンジニアが、
                             </p>
                             <p>
-                                どのプロジェクトにおいても、機能的であるだけでなく、美しく調和の取れたシステムを作り出すことを目指しており、
+                                技術力向上のために日々奮闘する様子を公開しています。
                             </p>
-                            <p>「syn」が示す対称性と統一性を反映しています。</p>
+                            <p className='mt-8'>
+                                同じベクトルを向かれている方がいらっしゃれば、
+                            </p>
+                            <p>
+                                ご自由にご参画ください。
+                            </p>
                         </div>
                     </Body>
                 </section>
                 <section className="mt-40">
                     <Body title="LINKS">
-                        <div className=""></div>
+                        <div className="text-elem-info">
+                            Check my account below...
+                        </div>
+                        <div className="mt-4 flex justify-center">
+                            <div className='px-4'>
+                                <a href="https://github.com/syn154045" target='_blank' rel='noreferrer noopener' className='block p-1 hover:opacity-50 transition-opacity duration-300'>
+                                    <Image src={gitLogo} alt='github' width={40} height={40} />
+                                </a>
+                            </div>
+                            <div className='px-4'>
+                                <a href="https://x.com/philo_photo" target='_blank' rel='noreferrer noopener' className='block p-1 hover:opacity-50 transition-opacity duration-300'>
+                                    <Image src={xLogo} alt='github' width={40} height={40} />
+                                </a>
+                            </div>
+                        </div>
                     </Body>
                 </section>
             </main>
         </>
     );
 };
+
+{/* 以下、固い方の文章（ボツ）
+    AI時代への移行は我々の社会の在り方にコペルニクス的転回を引き起こし、
+    あらゆる境界や障害を除去しつつある。
+    一方でその反面、連続性のあった社会秩序が分散し、
+    放埓で非寛容的な思想の蔓延を助長している。
+    これは二項対立の問題ではない。
+    対峙する双方をアウフヘーベンするべく、
+    地球という惑星に生きる我々で共に考えていく必要がある。
+    私はその中の１個体として、
+    持てる技術を活用し1nmでも社会に調和を齎す契機を作れるよう、
+    ここにオープンスペースを鼎立する。
+*/}
 
 export default Home;
