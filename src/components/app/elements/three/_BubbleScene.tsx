@@ -11,8 +11,10 @@ const BubbleScene: React.FC = () => {
 
     useEffect(() => {
         const canvas = canvasRef.current!;
-        let width = canvas.offsetWidth;
-        let height = canvas.offsetHeight;
+        // let width = canvas.offsetWidth;
+        // let height = canvas.offsetHeight;
+        let width = window.innerWidth;
+        let height = window.innerHeight;
 
         const renderer = new THREE.WebGLRenderer({
             canvas: canvas,

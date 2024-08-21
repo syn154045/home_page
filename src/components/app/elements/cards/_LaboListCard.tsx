@@ -3,6 +3,7 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image, { StaticImageData } from 'next/image';
+import Link from 'next/link';
 import { useEffect, useRef } from 'react';
 
 interface LaboListCardProps {
@@ -43,7 +44,7 @@ const LaboListCard = ({
             ref={cardRef}
             className="flex w-full flex-col rounded-3xl border-[0.125rem] border-app-accent2 bg-app-main/30 opacity-0 transition-all duration-300 hover:bg-app-accent2/30"
         >
-            <a
+            <Link
                 href={link}
                 className="group block"
                 target={newTab ? '_blank' : '_self'}
@@ -60,7 +61,7 @@ const LaboListCard = ({
                     </h2>
                     <p className="mt-5 line-clamp-4 grow text-sm">{cardBody}</p>
                 </div>
-            </a>
+            </Link>
         </div>
     );
 };

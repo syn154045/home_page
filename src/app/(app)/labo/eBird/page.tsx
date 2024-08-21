@@ -47,8 +47,8 @@
 
 // import EBirdMap from '@/components/app/elements/maps/_EBirdMap';
 import EBirdRegionSearch from '@/components/app/elements/searches/_EBirdRegionSearch';
-import { useState } from 'react';
 import { Body } from '@/components/app/layouts';
+import { useState } from 'react';
 
 interface Marker {
     lat: number;
@@ -107,7 +107,7 @@ export default function Home() {
     // }, []);
 
     return (
-        <Body title="E-BIRD">
+        <Body title="E-BIRD" marginTop="small">
             <div className="p-4">
                 <h1 className="mb-4 text-2xl font-bold">
                     eBird地域選択とデータ取得

@@ -42,7 +42,7 @@ const Thanks = () => {
     }, [setIsSubmitted]);
 
     return (
-        <Body title="CONTACT">
+        <Body title="CONTACT" marginTop="small">
             {isSubmitted && (
                 <div className="font-thin tracking-wider">
                     <div>お問い合わせありがとうございました。</div>

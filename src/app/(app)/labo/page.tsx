@@ -4,7 +4,6 @@ import { Metadata } from 'next';
 import { StaticImageData } from 'next/image';
 import birdImg from '~/public/bird.jpeg';
 import devImg from '~/public/developing.jpeg';
-import noImage from '~/public/NoImage.png';
 
 export const metadata: Metadata = {
     title: 'labo',
@@ -57,7 +56,7 @@ const LaboListContents: Array<{
 
 const Labo = () => {
     return (
-        <Body title="LABORATORY">
+        <Body title="LABORATORY" marginTop="small">
             <div className="grid grid-cols-1 gap-12 tablet:grid-cols-2 tablet:gap-x-20 tablet:gap-y-10">
                 {LaboListContents.map((content) => (
                     <LaboListCard

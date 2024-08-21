@@ -1,9 +1,9 @@
-import { Metadata } from 'next';
-import ProfileImg from '~/public/profile.png';
-import HobbyImg from '~/public/bird.jpeg';
-import SkillImg from '~/public/skill.png';
-import { Body } from '@/components/app/layouts';
 import { ProfCard } from '@/components/app/elements/cards';
+import { Body } from '@/components/app/layouts';
+import { Metadata } from 'next';
+import HobbyImg from '~/public/bird.jpeg';
+import ProfileImg from '~/public/profile.png';
+import SkillImg from '~/public/skill.png';
 
 export const metadata: Metadata = {
     title: 'profile',
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 const Profile = () => {
     return (
-        <Body title="PROFILE">
+        <Body title="PROFILE" marginTop="small">
             <ProfCard order={1} title="syn:" cardImg={ProfileImg} altImg="syn:">
                 <>
                     <p className="">1996年大阪生まれ. 京都府在住.</p>
