@@ -43,7 +43,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-draft-wysiwyg": "^1.15.0",
-    "react-email": "2.1.5",
+    "react-email": "3.0.7",
     "react-hook-form": "^7.52.1",
     "react-intersection-observer": "^9.10.3",
     "react-loader-spinner": "^6.1.6",
