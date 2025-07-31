@@ -1,0 +1,30 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "timezone": "Asia/Tokyo",
+  "schedule": ["after 5am on Saturday", "before 7am on Saturday"],
+  "extends": ["config:js-app"],
+  "branchConcurrentLimit": 5,
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["major"],
+      "automerge": false,
+      "labels": ["renovate", "major"]
+    },
+    {
+      "matchUpdateTypes": ["minor"],
+      "groupName": "minor dependencies",
+      "automerge": true,
+      "platformAutomerge": true,
+      "ignoreTest": true,
+      "labels": ["renovate", "minor"]
+    },
+    {
+      "matchUpdateTypes": ["patch"],
+      "automerge": true,
+      "platformAutomerge": true,
+      "ignoreTest": true,
+      "labels": ["renovate", "patch"]
+    }
+  ],
+  "baseBranchPatterns": ["develop"]
+}
