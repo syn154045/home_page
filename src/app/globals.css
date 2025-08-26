@@ -1,3 +1,94 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-*: initial;
+  --color-neutral-50: #f7f7f8;
+  --color-neutral-100: #e3e3e5;
+  --color-neutral-200: #c7c7c9;
+  --color-neutral-300: #a3a3a7;
+  --color-neutral-400: #848485;
+  --color-neutral-500: #6b6b6d;
+  --color-neutral-600: #4a4a4b;
+  --color-neutral-700: #3b3b3c;
+  --color-neutral-800: #2d2d2e;
+  --color-neutral-900: #232323;
+  --color-neutral-950: #1a1a1a;
+
+  --color-primary-50: #f5f7fa;
+  --color-primary-100: #eaeff4;
+  --color-primary-200: #d0dce7;
+  --color-primary-300: #a7bfd2;
+  --color-primary-400: #779eb9;
+  --color-primary-500: #5682a1;
+  --color-primary-600: #436886;
+  --color-primary-700: #395771;
+  --color-primary-800: #30475c;
+  --color-primary-900: #2c3d4e;
+  --color-primary-950: #1d2834;
+
+  --color-secondary-50: #f7f5ef;
+  --color-secondary-100: #ebe6d6;
+  --color-secondary-200: #d9cfaf;
+  --color-secondary-300: #c3b081;
+  --color-secondary-400: #b1955e;
+  --color-secondary-500: #a28450;
+  --color-secondary-600: #8b6b43;
+  --color-secondary-700: #715339;
+  --color-secondary-800: #5f4634;
+  --color-secondary-900: #533d30;
+  --color-secondary-950: #2f2019;
+
+  --color-success-50: #f2fbfa;
+  --color-success-100: #d3f4f0;
+  --color-success-200: #a6e9e1;
+  --color-success-300: #72d6ce;
+  --color-success-400: #45bcb6;
+  --color-success-500: #2ca09d;
+  --color-success-600: #208180;
+  --color-success-700: #1e6868;
+  --color-success-800: #1c5353;
+  --color-success-900: #1b4646;
+  --color-success-950: #0a2829;
+
+  --color-warning-50: #fafaec;
+  --color-warning-100: #f4f3cd;
+  --color-warning-200: #eae59e;
+  --color-warning-300: #ddd267;
+  --color-warning-400: #d2bc3d;
+  --color-warning-500: #c3a72f;
+  --color-warning-600: #af8b28;
+  --color-warning-700: #866322;
+  --color-warning-800: #705023;
+  --color-warning-900: #614422;
+  --color-warning-950: #382310;
+
+  --color-error-50: #fdf4f3;
+  --color-error-100: #fce7e8;
+  --color-error-200: #f8d3d5;
+  --color-error-300: #f2afb3;
+  --color-error-400: #ea828a;
+  --color-error-500: #de5563;
+  --color-error-600: #c9354b;
+  --color-error-700: #af2840;
+  --color-error-800: #8e233a;
+  --color-error-900: #7a2136;
+  --color-error-950: #430e19;
+
+  /* graph, data colors */
+  --color-data-red: #ff6b6b;
+  --color-data-blue: #4dabf7;
+  --color-data-green: #69db7c;
+  --color-data-yellow: #ffec59;
+  --color-data-purple: #da77f2;
+  --color-data-cyan: #3bc9db;
+
+  --font-*: initial;
+  --font-mplusrounded: var(--font-mplusrounded);
+  --font-ubuntumono: var(--font-ubuntumono);
+  --font-redditmono: var(--font-redditmono);
+
+  --aspect-standard: 4 / 3;
+  --aspect-standard-v: 3 / 4;
+  --aspect-video-v: 9 / 16;
+  --aspect-cinema: 12 / 5;
+}

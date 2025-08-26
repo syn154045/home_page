@@ -1,0 +1,4 @@
+{
+  "cSpell.words": ["mplusrounded", "redditmono", "ubuntumono"],
+  "tailwindCSS.experimental.configFile": "../src/app/globals.css"
+}
