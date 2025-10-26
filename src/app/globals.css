@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@theme {
+@theme inline {
   --color-*: initial;
   --color-neutral-50: #f7f7f8;
   --color-neutral-100: #e3e3e5;
@@ -84,8 +84,9 @@
 
   --font-*: initial;
   --font-mplusrounded: var(--font-mplusrounded);
+  --font-zenmaru: var(--font-zenmaru);
+  --font-dmsans: var(--font-dmsans);
   --font-ubuntumono: var(--font-ubuntumono);
-  --font-redditmono: var(--font-redditmono);
 
   --aspect-standard: 4 / 3;
   --aspect-standard-v: 3 / 4;
