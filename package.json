@@ -24,7 +24,7 @@
     "@next-auth/prisma-adapter": "^1.0.7",
     "@prisma/adapter-pg": "^5.16.1",
     "@prisma/client": "^5.16.1",
-    "@react-email/components": "0.0.21",
+    "@react-email/components": "0.5.7",
     "@tensorflow/tfjs": "^4.20.0",
     "@types/bcrypt": "^5.0.2",
     "@types/rellax": "^1.7.7",
