@@ -1,6 +1,9 @@
 import { JSX } from 'react';
 import type { Metadata } from 'next';
-import { MPlusRounded, UbuntuMono, RedditMono } from '@/common/utils/fonts';
+import BgTest2 from '@/components/layouts/BgTest2';
+import { Footer } from '@/components/layouts/Footer';
+import { Header } from '@/components/layouts/Header';
+import { MPlusRounded, ZenMaru, DmSans, UbuntuMono } from '@/utils/fonts';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -19,10 +22,19 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body
-        className={`${MPlusRounded.variable} ${UbuntuMono.variable} ${RedditMono.variable} antialiased bg-neutral-50 text-neutral-900 min-h-full`}
+        className={`${MPlusRounded.variable} ${ZenMaru.variable} ${DmSans.variable} ${UbuntuMono.variable} antialiased bg-primary-900 text-primary-50 text-base leading-[1.25]`}
       >
-        {children}
+        <main className="font-mplusrounded min-h-screen">
+          <BgTest2 />
+          <Header />
+          {children}
+          <Footer />
+        </main>
       </body>
     </html>
   );
 }
+
+// TODO:
+// 最初にアクセスをしたときに、画面中央に
+// 「> welcome!」 という文字をタイピングし、フェードアウト

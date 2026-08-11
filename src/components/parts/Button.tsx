@@ -2,7 +2,7 @@ import type { ComponentProps, FC, ReactNode } from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 
 const buttonVariants = cva(
-  'relative inline-flex items-center justify-center gap-2 text-center leading-none outline-none transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-50',
+  'relative inline-flex items-center justify-center gap-2 text-center cursor-pointer outline-none transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-50',
   {
     variants: {
       visualType: {
@@ -19,8 +19,8 @@ const buttonVariants = cva(
         error: '',
       },
       size: {
-        small: 'rounded text-xs',
-        medium: 'rounded-md text-sm',
+        small: 'rounded text-sm',
+        medium: 'rounded-md text-base',
       },
       isFullWidth: {
         true: 'w-full',
@@ -100,7 +100,7 @@ const buttonVariants = cva(
         visualType: 'link',
         color: 'neutral',
         className:
-          'text-neutral-200 after:bg-neutral-200 focus:text-neutral-100 enabled:hover:text-neutral-100 enabled:active:text-neutral-50',
+          'text-neutral-100 after:bg-neutral-100 focus:text-neutral-50 enabled:hover:text-neutral-50 enabled:active:text-neutral-50',
       },
       {
         visualType: 'link',

@@ -88,8 +88,58 @@
   --font-dmsans: var(--font-dmsans);
   --font-ubuntumono: var(--font-ubuntumono);
 
+  --text-*: initial;
+  --text-base: 1rem;
+  --text-sm: 0.875rem; /* 14px */
+  --text-lg: 1.25rem; /* 20px */
+  --text-xl: 1.5rem; /* 24px */
+  --text-2xl: 2.5rem; /* 40px */
+  --text-3xl: 3.75rem; /* 60px */
+
   --aspect-standard: 4 / 3;
   --aspect-standard-v: 3 / 4;
   --aspect-video-v: 9 / 16;
   --aspect-cinema: 12 / 5;
 }
+
+html {
+  font-size: 16px; /* 1rem = 16px */
+}
+
+@keyframes blink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+.animate-blink {
+  animation: blink 1s steps(2, start) infinite;
+}
+
+
+/* 
+# 画面サイズの目安
+  PC標準サイズ
+  1位 1920 x 1080
+  2位 1366 x 768
+  3位 1536 x 864
+
+  タブレット標準サイズ
+  1位 768 x 1024
+  2位 810 x 1080
+  3位 800 x 1280
+
+  スマホ標準サイズ
+  1位 375 x 667
+  2位 390 x 844
+  3位 375 x 812
+  ※ iPhone系はRetina対応で実際のピクセル数は倍になることに注意
+
+# コンテンツ幅の目安
+  PC: 950~1100px
+  タブレット: 768px
+  スマホ: 360~450px
+*/

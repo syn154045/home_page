@@ -1,3 +1,3 @@
-export default function Home(): React.ReactElement {
+export default function Works(): React.ReactElement {
   return <section className="h-screen w-full">contents</section>;
 }
